@@ -1,0 +1,162 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="data">
+      <UniqueIdentifier>{1f5b1a14-42b8-4b40-8d31-e9ae5f5c65e6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="sources">
+      <UniqueIdentifier>{064a69cb-3fba-4a47-b2ea-dda6d71bbbfc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="headers">
+      <UniqueIdentifier>{5a2a1644-b513-40a4-81f6-96ab04cd6cc5}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\models\hoap\env.s">
+      <Filter>data</Filter>
+    </None>
+    <None Include="..\..\models\hoap\environment.s">
+      <Filter>data</Filter>
+    </None>
+    <None Include="..\..\models\hoap\hoap.hm">
+      <Filter>data</Filter>
+    </None>
+    <None Include="..\..\models\hoap\hoap.s">
+      <Filter>data</Filter>
+    </None>
+    <None Include="..\data\hoap.sd">
+      <Filter>data</Filter>
+    </None>
+    <None Include="..\data\Hoap3.s">
+      <Filter>data</Filter>
+    </None>
+    <None Include="..\src\config.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\src\app_fluid.cpp">
+      <Filter>sources</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\app_foot_viewer.cpp">
+      <Filter>sources</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\app_graph_viewer.cpp">
+      <Filter>sources</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\app_main.cpp">
+      <Filter>sources</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\app_main_win.cpp">
+      <Filter>sources</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\app_nla_viewer.cpp">
+      <Filter>sources</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\app_viewer.cpp">
+      <Filter>sources</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\curve.cpp">
+      <Filter>sources</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\draw_primitives.cpp">
+      <Filter>sources</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\foot.cpp">
+      <Filter>sources</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\hoap_client.cpp">
+      <Filter>sources</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\jacobian_ik.cpp">
+      <Filter>sources</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\particle_ik.cpp">
+      <Filter>sources</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\time_slider.cpp">
+      <Filter>sources</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\track.cpp">
+      <Filter>sources</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\utilities.cpp">
+      <Filter>sources</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\vicon_client.cpp">
+      <Filter>sources</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\walk_controler.cpp">
+      <Filter>sources</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\walk_generator.cpp">
+      <Filter>sources</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\src\app_events.h">
+      <Filter>headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\app_fluid.h">
+      <Filter>headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\app_foot_viewer.h">
+      <Filter>headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\app_graph_viewer.h">
+      <Filter>headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\app_main.h">
+      <Filter>headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\app_main_win.h">
+      <Filter>headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\app_nla_viewer.h">
+      <Filter>headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\app_viewer.h">
+      <Filter>headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\curve.h">
+      <Filter>headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\draw_primitives.h">
+      <Filter>headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\foot.h">
+      <Filter>headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\hoap_client.h">
+      <Filter>headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\hoapnet\shared\hoap_control.h">
+      <Filter>headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\jacobian_ik.h">
+      <Filter>headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\hoapnet\server\netapi_ids.h">
+      <Filter>headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\particle_ik.h">
+      <Filter>headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\time_slider.h">
+      <Filter>headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\track.h">
+      <Filter>headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\utilities.h">
+      <Filter>headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\vicon_client.h">
+      <Filter>headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\walk_controler.h">
+      <Filter>headers</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\walk_generator.h">
+      <Filter>headers</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>

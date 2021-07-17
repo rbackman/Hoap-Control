@@ -1,0 +1,454 @@
+# SK Skeleton Character Definition for gSim
+# Robert Backman  rbackman07@gmail.com
+KnSkeleton
+
+skeldata
+
+joint Hips
+{
+   channel XPos 0 free
+   channel YPos 0 free
+   channel ZPos 0 free
+   channel Quat free
+}
+
+joint RightHandThumb3
+{
+   channel XRot 0 lim -360 360
+   channel YRot 0 lim -360 360
+   channel ZRot 0 lim -360 360
+}
+
+joint RightHandThumb2
+{
+   channel XRot 0 lim 0 0
+   channel YRot 0 lim 0 0
+   channel ZRot 0 lim -360 360
+}
+
+joint RightHandThumb1
+{
+   channel XRot 0 lim 0 0
+   channel YRot 0 lim 0 0
+   channel ZRot 0 lim -360 360
+}
+
+joint RightHandIndex4
+{
+   channel XRot 0 lim 0 0
+   channel YRot 0 lim 0 0
+   channel ZRot 0 lim -360 360
+}
+
+joint RightHandIndex3
+{
+   channel XRot 0 lim 0 0
+   channel YRot 0 lim 0 0
+   channel ZRot 0 lim -360 360
+}
+
+joint RightHandIndex2
+{
+   channel XRot 0 lim 0 0
+   channel YRot 0 lim 0 0
+   channel ZRot 0 lim -360 360
+}
+
+joint RightHandIndex1
+{
+   channel XRot 0 lim 0 0
+   channel YRot 0 lim 0 0
+   channel ZRot 0 lim -360 360
+}
+
+joint RightHandMiddle4
+{
+   channel XRot 0 lim 0 0
+   channel YRot 0 lim 0 0
+   channel ZRot 0 lim -360 360
+}
+
+joint RightHandMiddle3
+{
+   channel XRot 0 lim 0 0
+   channel YRot 0 lim 0 0
+   channel ZRot 0 lim -360 360
+}
+
+joint RightHandMiddle2
+{
+   channel XRot 0 lim 0 0
+   channel YRot 0 lim 0 0
+   channel ZRot 0 lim -360 360
+}
+
+joint RightHandMiddle1
+{
+   channel XRot 0 lim 0 0
+   channel YRot 0 lim 0 0
+   channel ZRot 0 lim -360 360
+}
+
+joint RightHandRing4
+{
+   channel XRot 0 lim 0 0
+   channel YRot 0 lim 0 0
+   channel ZRot 0 lim -360 360
+}
+
+joint RightHandRing3
+{
+   channel XRot 0 lim 0 0
+   channel YRot 0 lim 0 0
+   channel ZRot 0 lim -360 360
+}
+
+joint RightHandRing2
+{
+   channel XRot 0 lim 0 0
+   channel YRot 0 lim 0 0
+   channel ZRot 0 lim -360 360
+}
+
+joint RightHandRing1
+{
+   channel XRot 0 lim 0 0
+   channel YRot 0 lim 0 0
+   channel ZRot 0 lim -360 360
+}
+
+joint RightHandPinky4
+{
+   channel XRot 0 lim 0 0
+   channel YRot 0 lim 0 0
+   channel ZRot 0 lim -360 360
+}
+
+joint RightHandPinky3
+{
+   channel XRot 0 lim 0 0
+   channel YRot 0 lim 0 0
+   channel ZRot 0 lim -360 360
+}
+
+joint RightHandPinky2
+{
+   channel XRot 0 lim 0 0
+   channel YRot 0 lim 0 0
+   channel ZRot 0 lim -360 360
+}
+
+joint RightHandPinky1
+{
+   channel XRot 0 lim 0 0
+   channel YRot 0 lim 0 0
+   channel ZRot 0 lim -360 360
+}
+
+joint RightHand
+{
+   channel XRot 0 lim -360 360
+   channel YRot 0 lim -360 360
+   channel ZRot 0 lim -360 360
+}
+
+joint RightForeArm
+{
+   channel XRot 0 lim 0 0
+   channel YRot 0 lim -360 360
+   channel ZRot 0 lim 0 0
+}
+
+joint RightUpArm
+{
+   channel XRot 0 lim 0 0
+   channel YRot 0 lim 0 0
+   channel ZRot 0 lim -360 360
+}
+
+joint RightShoulder
+{
+   channel XRot 0 lim -360 360
+   channel YRot 0 lim 0 0
+   channel ZRot 0 lim 0 0
+}
+
+joint visGeo_Head1
+{
+   channel XRot 0 lim -360 360
+   channel YRot 0 lim -360 360
+   channel ZRot 0 lim -360 360
+}
+
+joint Head
+{
+   channel XRot 0 lim -360 360
+   channel YRot 0 lim -360 360
+   channel ZRot 0 lim -360 360
+}
+
+joint Neck
+{
+   channel XRot 0 lim -360 360
+   channel YRot 0 lim -360 360
+   channel ZRot 0 lim -360 360
+}
+
+joint LeftHandThumb3
+{
+   channel XRot 0 lim 0 0
+   channel YRot 0 lim 0 0
+   channel ZRot 0 lim -360 360
+}
+
+joint LeftHandThumb2
+{
+   channel XRot 0 lim 0 0
+   channel YRot 0 lim 0 0
+   channel ZRot 0 lim -360 360
+}
+
+joint LeftHandThumb1
+{
+   channel XRot 0 lim 0 0
+   channel YRot 0 lim 0 0
+   channel ZRot 0 lim -360 360
+}
+
+joint LeftHandMiddle4
+{
+   channel XRot 0 lim 0 0
+   channel YRot 0 lim 0 0
+   channel ZRot 0 lim -360 360
+}
+
+joint LeftHandMiddle3
+{
+   channel XRot 0 lim 0 0
+   channel YRot 0 lim 0 0
+   channel ZRot 0 lim -360 360
+}
+
+joint LeftHandMiddle2
+{
+   channel XRot 0 lim 0 0
+   channel YRot 0 lim 0 0
+   channel ZRot 0 lim -360 360
+}
+
+joint LeftHandMiddle1
+{
+   channel XRot 0 lim 0 0
+   channel YRot 0 lim 0 0
+   channel ZRot 0 lim -360 360
+}
+
+joint LeftHandIndex4
+{
+   channel XRot 0 lim 0 0
+   channel YRot 0 lim 0 0
+   channel ZRot 0 lim -360 360
+}
+
+joint LeftHandIndex3
+{
+   channel XRot 0 lim 0 0
+   channel YRot 0 lim 0 0
+   channel ZRot 0 lim -360 360
+}
+
+joint LeftHandIndex2
+{
+   channel XRot 0 lim 0 0
+   channel YRot 0 lim 0 0
+   channel ZRot 0 lim -360 360
+}
+
+joint LeftHandIndex1
+{
+   channel XRot 0 lim 0 0
+   channel YRot 0 lim 0 0
+   channel ZRot 0 lim -360 360
+}
+
+joint LeftHandRing4
+{
+   channel XRot 0 lim 0 0
+   channel YRot 0 lim 0 0
+   channel ZRot 0 lim -360 360
+}
+
+joint LeftHandRing3
+{
+   channel XRot 0 lim 0 0
+   channel YRot 0 lim 0 0
+   channel ZRot 0 lim -360 360
+}
+
+joint LeftHandRing2
+{
+   channel XRot 0 lim 0 0
+   channel YRot 0 lim 0 0
+   channel ZRot 0 lim -360 360
+}
+
+joint LeftHandRing1
+{
+   channel XRot 0 lim 0 0
+   channel YRot 0 lim 0 0
+   channel ZRot 0 lim -360 360
+}
+
+joint LeftHandPinky4
+{
+   channel XRot 0 lim 0 0
+   channel YRot 0 lim 0 0
+   channel ZRot 0 lim -360 360
+}
+
+joint LeftHandPinky3
+{
+   channel XRot 0 lim 0 0
+   channel YRot 0 lim 0 0
+   channel ZRot 0 lim -360 360
+}
+
+joint LeftHandPinky2
+{
+   channel XRot 0 lim 0 0
+   channel YRot 0 lim 0 0
+   channel ZRot 0 lim -360 360
+}
+
+joint LeftHandPinky1
+{
+   channel XRot 0 lim 0 0
+   channel YRot 0 lim 0 0
+   channel ZRot 0 lim -360 360
+}
+
+joint LeftHand
+{
+   channel XRot 0 lim -360 360
+   channel YRot 0 lim 0 0
+   channel ZRot 0 lim 0 0
+}
+
+joint LeftForeArm
+{
+   channel XRot 0 lim 0 0
+   channel YRot 0 lim -360 360
+   channel ZRot 0 lim 0 0
+}
+
+joint LeftUpArm
+{
+   channel XRot 0 lim 0 0
+   channel YRot 0 lim 0 0
+   channel ZRot 0 lim -360 360
+}
+
+joint LeftShoulder
+{
+   channel XRot 0 lim -360 360
+   channel YRot 0 lim 0 0
+   channel ZRot 0 lim 0 0
+}
+
+joint LeftFootFront_End
+{
+   channel XRot 0 lim -360 360
+   channel YRot 0 lim -360 360
+   channel ZRot 0 lim -360 360
+}
+
+joint LeftFootBack_End
+{
+   channel XRot 0 lim -360 360
+   channel YRot 0 lim -360 360
+   channel ZRot 0 lim -360 360
+}
+
+joint LeftFoot
+{
+   channel XRot 0 lim -360 360
+   channel YRot 0 lim -360 360
+   channel ZRot 0 lim -360 360
+}
+
+joint LeftFootBase
+{
+   channel XRot 0 lim 0 0
+   channel YRot 0 lim 0 0
+   channel ZRot 0 lim -360 360
+}
+
+joint LeftLeg
+{
+   channel XRot 0 lim -360 360
+   channel YRot 0 lim 0 0
+   channel ZRot 0 lim 0 0
+}
+
+joint LeftUpLeg
+{
+   channel XRot 0 lim -360 360
+   channel YRot 0 lim 0 0
+   channel ZRot 0 lim 0 0
+}
+
+joint LeftUpLegBase
+{
+   channel XRot 0 lim 0 0
+   channel YRot 0 lim -360 360
+   channel ZRot 0 lim 0 0
+}
+
+joint RightFootFront_End
+{
+   channel XRot 0 lim -360 360
+   channel YRot 0 lim -360 360
+   channel ZRot 0 lim -360 360
+}
+
+joint RightFootBack_End
+{
+   channel XRot 0 lim -360 360
+   channel YRot 0 lim -360 360
+   channel ZRot 0 lim -360 360
+}
+
+joint RightFoot
+{
+   channel XRot 0 lim -360 360
+   channel YRot 0 lim -360 360
+   channel ZRot 0 lim -360 360
+}
+
+joint RightFootBase
+{
+   channel XRot 0 lim 0 0
+   channel YRot 0 lim 0 0
+   channel ZRot 0 lim -360 360
+}
+
+joint RightLeg
+{
+   channel XRot 0 lim -360 360
+   channel YRot 0 lim 0 0
+   channel ZRot 0 lim 0 0
+}
+
+joint RightUpLeg
+{
+   channel XRot 0 lim -360 360
+   channel YRot 0 lim 0 0
+   channel ZRot 0 lim 0 0
+}
+
+joint RightUpLegBase
+{
+   channel XRot 0 lim 0 0
+   channel YRot 0 lim -360 360
+   channel ZRot 0 lim 0 0
+}

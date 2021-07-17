@@ -1,0 +1,36 @@
+
+KnSkeleton
+
+skeldata
+
+joint hips
+ { offset 0 0 0
+   channel YPos 111.5 free
+   channel XPos 40 free
+ }
+ 
+joint rshoulder
+ {
+   channel Swing  axis 1 -0.25 ang 70  lim 110 150
+   channel Twist 0 lim -90 120
+ }
+ 
+joint relbow
+ {
+   channel YRot 55 lim 0 160
+   channel ZRot 0 lim -120 45
+ }
+
+joint lshoulder
+ {
+   channel Swing   axis 1 +0.25 ang 70  lim 110 150
+   channel Twist 0 lim -90 120
+ }
+ 
+joint lelbow
+ {
+   channel YRot -55 lim -160 0
+   channel ZRot 0 lim -45 120
+ }
+
+end

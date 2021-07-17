@@ -1,0 +1,130 @@
+﻿  app_fluid.cpp
+  app_foot_viewer.cpp
+  app_graph_viewer.cpp
+  app_main.cpp
+  app_main_win.cpp
+  app_nla_viewer.cpp
+  app_viewer.cpp
+  curve.cpp
+  draw_primitives.cpp
+  foot.cpp
+  hoap_client.cpp
+  jacobian_ik.cpp
+  particle_ik.cpp
+  time_slider.cpp
+  track.cpp
+  utilities.cpp
+  vicon_client.cpp
+  walk_controler.cpp
+  walk_generator.cpp
+g:\users\robert\desktop\labcode\hoapcontrol\src\walk_generator.cpp(110): warning C4305: 'argument': truncation from 'double' to 'float'
+g:\users\robert\desktop\labcode\hoapcontrol\src\walk_generator.cpp(1174): warning C4477: 'sprintf' : format string '%g' requires an argument of type 'double', but variadic argument 1 has type 'int'
+  Generating Code...
+app_fluid.obj : warning LNK4075: ignoring '/EDITANDCONTINUE' due to '/SAFESEH' specification
+graphsim-dbg.lib(gs_model.obj) : error LNK2038: mismatch detected for '_MSC_VER': value '1700' doesn't match value '1900' in app_fluid.obj
+fltk2-dbg.lib(FileChooser2.obj) : warning LNK4049: locally defined symbol _sprintf imported
+fltk2-dbg.lib(Preferences.obj) : warning LNK4049: locally defined symbol _sprintf imported
+fltk2-dbg.lib(FileBrowser.obj) : warning LNK4049: locally defined symbol _sprintf imported
+fltk2-dbg.lib(FileIcon.obj) : warning LNK4217: locally defined symbol _sprintf imported in function "public: __thiscall fltk::FileIcon::FileIcon(class fltk::FileIcon const &)" (??0FileIcon@fltk@@QAE@ABV01@@Z)
+fltk2-dbg.lib(file_chooser.obj) : warning LNK4217: locally defined symbol _sprintf imported in function "void __cdecl callback(class fltk::FileChooser *,void *)" (?callback@@YAXPAVFileChooser@fltk@@PAX@Z)
+fltk2-dbg.lib(color_chooser.obj) : warning LNK4049: locally defined symbol _sprintf imported
+fltk2-dbg.lib(NumericInput.obj) : warning LNK4217: locally defined symbol _sprintf imported in function "public: void __thiscall fltk::Widget::clear_changed(void)" (?clear_changed@Widget@fltk@@QAEXXZ)
+fltk2-dbg.lib(Slider.obj) : warning LNK4049: locally defined symbol _sprintf imported
+graphsim-dbg.lib(gs_string.obj) : warning LNK4217: locally defined symbol _sprintf imported in function "public: class GsString & __thiscall GsString::operator<<(int)" (??6GsString@@QAEAAV0@H@Z)
+graphsim-dbg.lib(gs_var.obj) : warning LNK4049: locally defined symbol _sprintf imported
+fltk2-dbg.lib(Valuator.obj) : warning LNK4049: locally defined symbol _sprintf imported
+fltk2-dbg.lib(TextDisplay.obj) : warning LNK4049: locally defined symbol _sprintf imported
+graphsim-dbg.lib(gs_model.obj) : warning LNK4217: locally defined symbol ??0_Container_base12@std@@QAE@XZ (public: __thiscall std::_Container_base12::_Container_base12(void)) imported in function "public: __thiscall std::_String_val<struct std::_Simple_types<char> >::_String_val<struct std::_Simple_types<char> >(void)" (??0?$_String_val@U?$_Simple_types@D@std@@@std@@QAE@XZ)
+graphsim-dbg.lib(gs_model.obj) : warning LNK4217: locally defined symbol ??1_Container_base12@std@@QAE@XZ (public: __thiscall std::_Container_base12::~_Container_base12(void)) imported in function "public: __thiscall std::_String_val<struct std::_Simple_types<char> >::~_String_val<struct std::_Simple_types<char> >(void)" (??1?$_String_val@U?$_Simple_types@D@std@@@std@@QAE@XZ)
+graphsim-dbg.lib(gs_model.obj) : warning LNK4217: locally defined symbol ?_Orphan_all@_Container_base12@std@@QAEXXZ (public: void __thiscall std::_Container_base12::_Orphan_all(void)) imported in function "public: void __thiscall std::_String_alloc<0,struct std::_String_base_types<char,class std::allocator<char> > >::_Free_proxy(void)" (?_Free_proxy@?$_String_alloc@$0A@U?$_String_base_types@DV?$allocator@D@std@@@std@@@std@@QAEXXZ)
+graphsim-dbg.lib(gs_image.obj) : warning LNK4217: locally defined symbol _fprintf imported in function "public: bool __thiscall GsImage::save(char const *)" (?save@GsImage@@QAE_NPBD@Z)
+graphsim-dbg.lib(kn_channel.obj) : warning LNK4049: locally defined symbol _fprintf imported
+graphsimfl-dbg.lib(fl_output_win.obj) : warning LNK4049: locally defined symbol _fprintf imported
+fltk2-dbg.lib(Preferences.obj) : warning LNK4049: locally defined symbol _fprintf imported
+graphsim-dbg.lib(se_dt.obj) : warning LNK4217: locally defined symbol _printf imported in function "public: void __thiscall SeDt::triangulate_face(class SeDtFace *)" (?triangulate_face@SeDt@@QAEXPAVSeDtFace@@@Z)
+graphsim-dbg.lib(se_mesh_operators.obj) : warning LNK4049: locally defined symbol _printf imported
+walk_controler.obj : error LNK2001: unresolved external symbol "public: __thiscall SystemAddress::SystemAddress(void)" (??0SystemAddress@@QAE@XZ)
+walk_generator.obj : error LNK2001: unresolved external symbol "public: __thiscall SystemAddress::SystemAddress(void)" (??0SystemAddress@@QAE@XZ)
+particle_ik.obj : error LNK2001: unresolved external symbol "public: __thiscall SystemAddress::SystemAddress(void)" (??0SystemAddress@@QAE@XZ)
+time_slider.obj : error LNK2001: unresolved external symbol "public: __thiscall SystemAddress::SystemAddress(void)" (??0SystemAddress@@QAE@XZ)
+track.obj : error LNK2001: unresolved external symbol "public: __thiscall SystemAddress::SystemAddress(void)" (??0SystemAddress@@QAE@XZ)
+utilities.obj : error LNK2001: unresolved external symbol "public: __thiscall SystemAddress::SystemAddress(void)" (??0SystemAddress@@QAE@XZ)
+draw_primitives.obj : error LNK2001: unresolved external symbol "public: __thiscall SystemAddress::SystemAddress(void)" (??0SystemAddress@@QAE@XZ)
+foot.obj : error LNK2001: unresolved external symbol "public: __thiscall SystemAddress::SystemAddress(void)" (??0SystemAddress@@QAE@XZ)
+hoap_client.obj : error LNK2001: unresolved external symbol "public: __thiscall SystemAddress::SystemAddress(void)" (??0SystemAddress@@QAE@XZ)
+jacobian_ik.obj : error LNK2001: unresolved external symbol "public: __thiscall SystemAddress::SystemAddress(void)" (??0SystemAddress@@QAE@XZ)
+app_main_win.obj : error LNK2001: unresolved external symbol "public: __thiscall SystemAddress::SystemAddress(void)" (??0SystemAddress@@QAE@XZ)
+app_nla_viewer.obj : error LNK2001: unresolved external symbol "public: __thiscall SystemAddress::SystemAddress(void)" (??0SystemAddress@@QAE@XZ)
+app_viewer.obj : error LNK2001: unresolved external symbol "public: __thiscall SystemAddress::SystemAddress(void)" (??0SystemAddress@@QAE@XZ)
+curve.obj : error LNK2001: unresolved external symbol "public: __thiscall SystemAddress::SystemAddress(void)" (??0SystemAddress@@QAE@XZ)
+app_fluid.obj : error LNK2001: unresolved external symbol "public: __thiscall SystemAddress::SystemAddress(void)" (??0SystemAddress@@QAE@XZ)
+app_foot_viewer.obj : error LNK2001: unresolved external symbol "public: __thiscall SystemAddress::SystemAddress(void)" (??0SystemAddress@@QAE@XZ)
+app_graph_viewer.obj : error LNK2001: unresolved external symbol "public: __thiscall SystemAddress::SystemAddress(void)" (??0SystemAddress@@QAE@XZ)
+app_main.obj : error LNK2001: unresolved external symbol "public: __thiscall SystemAddress::SystemAddress(void)" (??0SystemAddress@@QAE@XZ)
+walk_controler.obj : error LNK2001: unresolved external symbol "public: __thiscall SystemAddress::SystemAddress(unsigned int,unsigned short)" (??0SystemAddress@@QAE@IG@Z)
+walk_generator.obj : error LNK2001: unresolved external symbol "public: __thiscall SystemAddress::SystemAddress(unsigned int,unsigned short)" (??0SystemAddress@@QAE@IG@Z)
+particle_ik.obj : error LNK2001: unresolved external symbol "public: __thiscall SystemAddress::SystemAddress(unsigned int,unsigned short)" (??0SystemAddress@@QAE@IG@Z)
+time_slider.obj : error LNK2001: unresolved external symbol "public: __thiscall SystemAddress::SystemAddress(unsigned int,unsigned short)" (??0SystemAddress@@QAE@IG@Z)
+track.obj : error LNK2001: unresolved external symbol "public: __thiscall SystemAddress::SystemAddress(unsigned int,unsigned short)" (??0SystemAddress@@QAE@IG@Z)
+utilities.obj : error LNK2001: unresolved external symbol "public: __thiscall SystemAddress::SystemAddress(unsigned int,unsigned short)" (??0SystemAddress@@QAE@IG@Z)
+draw_primitives.obj : error LNK2001: unresolved external symbol "public: __thiscall SystemAddress::SystemAddress(unsigned int,unsigned short)" (??0SystemAddress@@QAE@IG@Z)
+foot.obj : error LNK2001: unresolved external symbol "public: __thiscall SystemAddress::SystemAddress(unsigned int,unsigned short)" (??0SystemAddress@@QAE@IG@Z)
+hoap_client.obj : error LNK2001: unresolved external symbol "public: __thiscall SystemAddress::SystemAddress(unsigned int,unsigned short)" (??0SystemAddress@@QAE@IG@Z)
+jacobian_ik.obj : error LNK2001: unresolved external symbol "public: __thiscall SystemAddress::SystemAddress(unsigned int,unsigned short)" (??0SystemAddress@@QAE@IG@Z)
+app_main_win.obj : error LNK2001: unresolved external symbol "public: __thiscall SystemAddress::SystemAddress(unsigned int,unsigned short)" (??0SystemAddress@@QAE@IG@Z)
+app_nla_viewer.obj : error LNK2001: unresolved external symbol "public: __thiscall SystemAddress::SystemAddress(unsigned int,unsigned short)" (??0SystemAddress@@QAE@IG@Z)
+app_viewer.obj : error LNK2001: unresolved external symbol "public: __thiscall SystemAddress::SystemAddress(unsigned int,unsigned short)" (??0SystemAddress@@QAE@IG@Z)
+curve.obj : error LNK2001: unresolved external symbol "public: __thiscall SystemAddress::SystemAddress(unsigned int,unsigned short)" (??0SystemAddress@@QAE@IG@Z)
+app_fluid.obj : error LNK2001: unresolved external symbol "public: __thiscall SystemAddress::SystemAddress(unsigned int,unsigned short)" (??0SystemAddress@@QAE@IG@Z)
+app_foot_viewer.obj : error LNK2001: unresolved external symbol "public: __thiscall SystemAddress::SystemAddress(unsigned int,unsigned short)" (??0SystemAddress@@QAE@IG@Z)
+app_graph_viewer.obj : error LNK2001: unresolved external symbol "public: __thiscall SystemAddress::SystemAddress(unsigned int,unsigned short)" (??0SystemAddress@@QAE@IG@Z)
+app_main.obj : error LNK2001: unresolved external symbol "public: __thiscall SystemAddress::SystemAddress(unsigned int,unsigned short)" (??0SystemAddress@@QAE@IG@Z)
+app_main.obj : error LNK2019: unresolved external symbol "public: char const * __thiscall SystemAddress::ToString(bool)const " (?ToString@SystemAddress@@QBEPBD_N@Z) referenced in function "public: void __thiscall ViconClient::handleUserMessages(struct Packet *)" (?handleUserMessages@ViconClient@@QAEXPAUPacket@@@Z)
+hoap_client.obj : error LNK2001: unresolved external symbol "public: char const * __thiscall SystemAddress::ToString(bool)const " (?ToString@SystemAddress@@QBEPBD_N@Z)
+app_main.obj : error LNK2019: unresolved external symbol "unsigned __int64 __cdecl RakNet::GetTime(void)" (?GetTime@RakNet@@YA_KXZ) referenced in function "public: void __thiscall AppMain::checkHoap(void)" (?checkHoap@AppMain@@QAEXXZ)
+app_main.obj : error LNK2019: unresolved external symbol "void __cdecl RakSleep(unsigned int)" (?RakSleep@@YAXI@Z) referenced in function "public: void __thiscall AppMain::checkHoap(void)" (?checkHoap@AppMain@@QAEXXZ)
+app_main.obj : error LNK2019: unresolved external symbol "public: static class RakPeerInterface * __cdecl RakNetworkFactory::GetRakPeerInterface(void)" (?GetRakPeerInterface@RakNetworkFactory@@SAPAVRakPeerInterface@@XZ) referenced in function "public: __thiscall ViconClient::ViconClient(void)" (??0ViconClient@@QAE@XZ)
+hoap_client.obj : error LNK2001: unresolved external symbol "public: static class RakPeerInterface * __cdecl RakNetworkFactory::GetRakPeerInterface(void)" (?GetRakPeerInterface@RakNetworkFactory@@SAPAVRakPeerInterface@@XZ)
+app_main.obj : error LNK2019: unresolved external symbol "public: __thiscall RakNet::BitStream::BitStream(unsigned char *,unsigned int,bool)" (??0BitStream@RakNet@@QAE@PAEI_N@Z) referenced in function "public: void __thiscall ViconClient::handleUserMessages(struct Packet *)" (?handleUserMessages@ViconClient@@QAEXPAUPacket@@@Z)
+hoap_client.obj : error LNK2001: unresolved external symbol "public: __thiscall RakNet::BitStream::BitStream(unsigned char *,unsigned int,bool)" (??0BitStream@RakNet@@QAE@PAEI_N@Z)
+app_main.obj : error LNK2019: unresolved external symbol "public: __thiscall RakNet::BitStream::~BitStream(void)" (??1BitStream@RakNet@@QAE@XZ) referenced in function "public: void __thiscall ViconClient::handleUserMessages(struct Packet *)" (?handleUserMessages@ViconClient@@QAEXPAUPacket@@@Z)
+app_main_win.obj : error LNK2001: unresolved external symbol "public: __thiscall RakNet::BitStream::~BitStream(void)" (??1BitStream@RakNet@@QAE@XZ)
+hoap_client.obj : error LNK2001: unresolved external symbol "public: __thiscall RakNet::BitStream::~BitStream(void)" (??1BitStream@RakNet@@QAE@XZ)
+app_main.obj : error LNK2019: unresolved external symbol "public: bool __thiscall RakNet::BitStream::ReadAlignedBytes(unsigned char *,unsigned int)" (?ReadAlignedBytes@BitStream@RakNet@@QAE_NPAEI@Z) referenced in function "public: void __thiscall ViconClient::handleUserMessages(struct Packet *)" (?handleUserMessages@ViconClient@@QAEXPAUPacket@@@Z)
+hoap_client.obj : error LNK2001: unresolved external symbol "public: bool __thiscall RakNet::BitStream::ReadAlignedBytes(unsigned char *,unsigned int)" (?ReadAlignedBytes@BitStream@RakNet@@QAE_NPAEI@Z)
+app_main.obj : error LNK2019: unresolved external symbol "public: bool __thiscall RakNet::BitStream::ReadBits(unsigned char *,unsigned int,bool)" (?ReadBits@BitStream@RakNet@@QAE_NPAEI_N@Z) referenced in function "public: bool __thiscall RakNet::BitStream::Read<unsigned char>(unsigned char &)" (??$Read@E@BitStream@RakNet@@QAE_NAAE@Z)
+hoap_client.obj : error LNK2001: unresolved external symbol "public: bool __thiscall RakNet::BitStream::ReadBits(unsigned char *,unsigned int,bool)" (?ReadBits@BitStream@RakNet@@QAE_NPAEI_N@Z)
+app_main.obj : error LNK2019: unresolved external symbol "public: static bool __cdecl RakNet::BitStream::DoEndianSwap(void)" (?DoEndianSwap@BitStream@RakNet@@SA_NXZ) referenced in function "public: bool __thiscall RakNet::BitStream::Read<unsigned char>(unsigned char &)" (??$Read@E@BitStream@RakNet@@QAE_NAAE@Z)
+app_main_win.obj : error LNK2001: unresolved external symbol "public: static bool __cdecl RakNet::BitStream::DoEndianSwap(void)" (?DoEndianSwap@BitStream@RakNet@@SA_NXZ)
+hoap_client.obj : error LNK2001: unresolved external symbol "public: static bool __cdecl RakNet::BitStream::DoEndianSwap(void)" (?DoEndianSwap@BitStream@RakNet@@SA_NXZ)
+app_main.obj : error LNK2019: unresolved external symbol "public: static void __cdecl RakNet::BitStream::ReverseBytes(unsigned char *,unsigned char *,unsigned int)" (?ReverseBytes@BitStream@RakNet@@SAXPAE0I@Z) referenced in function "public: bool __thiscall RakNet::BitStream::Read<unsigned char>(unsigned char &)" (??$Read@E@BitStream@RakNet@@QAE_NAAE@Z)
+app_main_win.obj : error LNK2001: unresolved external symbol "public: static void __cdecl RakNet::BitStream::ReverseBytes(unsigned char *,unsigned char *,unsigned int)" (?ReverseBytes@BitStream@RakNet@@SAXPAE0I@Z)
+hoap_client.obj : error LNK2001: unresolved external symbol "public: static void __cdecl RakNet::BitStream::ReverseBytes(unsigned char *,unsigned char *,unsigned int)" (?ReverseBytes@BitStream@RakNet@@SAXPAE0I@Z)
+app_main.obj : error LNK2019: unresolved external symbol "private: bool __thiscall RakNet::BitStream::ReadCompressed(unsigned char *,unsigned int,bool)" (?ReadCompressed@BitStream@RakNet@@AAE_NPAEI_N@Z) referenced in function "public: bool __thiscall RakNet::BitStream::ReadCompressed<unsigned int>(unsigned int &)" (??$ReadCompressed@I@BitStream@RakNet@@QAE_NAAI@Z)
+app_main_win.obj : error LNK2019: unresolved external symbol "public: __thiscall SocketDescriptor::SocketDescriptor(void)" (??0SocketDescriptor@@QAE@XZ) referenced in function "public: void __thiscall ViconClient::Startup(void)" (?Startup@ViconClient@@QAEXXZ)
+hoap_client.obj : error LNK2001: unresolved external symbol "public: __thiscall SocketDescriptor::SocketDescriptor(void)" (??0SocketDescriptor@@QAE@XZ)
+app_main_win.obj : error LNK2019: unresolved external symbol "public: __thiscall RakNet::BitStream::BitStream(void)" (??0BitStream@RakNet@@QAE@XZ) referenced in function "public: void __thiscall ViconClient::SendHello(void)" (?SendHello@ViconClient@@QAEXXZ)
+hoap_client.obj : error LNK2001: unresolved external symbol "public: __thiscall RakNet::BitStream::BitStream(void)" (??0BitStream@RakNet@@QAE@XZ)
+app_main_win.obj : error LNK2019: unresolved external symbol "public: void __thiscall RakNet::BitStream::WriteBits(unsigned char const *,unsigned int,bool)" (?WriteBits@BitStream@RakNet@@QAEXPBEI_N@Z) referenced in function "public: void __thiscall RakNet::BitStream::Write<unsigned char>(unsigned char)" (??$Write@E@BitStream@RakNet@@QAEXE@Z)
+hoap_client.obj : error LNK2001: unresolved external symbol "public: void __thiscall RakNet::BitStream::WriteBits(unsigned char const *,unsigned int,bool)" (?WriteBits@BitStream@RakNet@@QAEXPBEI_N@Z)
+hoap_client.obj : error LNK2019: unresolved external symbol "public: static void __cdecl RakNetworkFactory::DestroyRakPeerInterface(class RakPeerInterface *)" (?DestroyRakPeerInterface@RakNetworkFactory@@SAXPAVRakPeerInterface@@@Z) referenced in function "public: __thiscall HoapClient::~HoapClient(void)" (??1HoapClient@@QAE@XZ)
+hoap_client.obj : error LNK2019: unresolved external symbol "public: void __thiscall RakNet::BitStream::WriteAlignedBytes(unsigned char const *,unsigned int)" (?WriteAlignedBytes@BitStream@RakNet@@QAEXPBEI@Z) referenced in function "public: void __thiscall HoapClient::sendMessage(struct my_msg *)" (?sendMessage@HoapClient@@QAEXPAUmy_msg@@@Z)
+graphsim-dbg.lib(gs.obj) : error LNK2019: unresolved external symbol __imp____iob_func referenced in function "void __cdecl gs_output_to_disk(char const *,char const *)" (?gs_output_to_disk@@YAXPBD0@Z)
+graphsim-dbg.lib(gs_string.obj) : error LNK2001: unresolved external symbol __imp____iob_func
+graphsim-dbg.lib(gs_output.obj) : error LNK2001: unresolved external symbol __imp____iob_func
+fltk2-dbg.lib(WinMain.obj) : error LNK2001: unresolved external symbol __imp____iob_func
+graphsim-dbg.lib(gs_string.obj) : error LNK2019: unresolved external symbol __imp__vsprintf referenced in function "public: void __cdecl GsString::setf(char const *,...)" (?setf@GsString@@QAAXPBDZZ)
+graphsim-dbg.lib(gs_output.obj) : error LNK2001: unresolved external symbol __imp__vsprintf
+graphsim-dbg.lib(gs_model.obj) : error LNK2019: unresolved external symbol __imp__fscanf referenced in function "public: bool __thiscall GsModel::load(class GsInput &)" (?load@GsModel@@QAE_NAAVGsInput@@@Z)
+graphsim-dbg.lib(gs_model.obj) : error LNK2019: unresolved external symbol "__declspec(dllimport) char const * __cdecl std::_Winerror_map(int)" (__imp_?_Winerror_map@std@@YAPBDH@Z) referenced in function "public: virtual class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > __thiscall std::_System_error_category::message(int)const " (?message@_System_error_category@std@@UBE?AV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@2@H@Z)
+fltk2-dbg.lib(message.obj) : error LNK2019: unresolved external symbol __imp___vsnprintf referenced in function "int __cdecl innards(char const *,char const *,int,char const *,char *,char const *,char const *,char const *)" (?innards@@YAHPBD0H0PAD000@Z)
+fltk2-dbg.lib(error.obj) : error LNK2001: unresolved external symbol __imp___vsnprintf
+fltk2-dbg.lib(Preferences.obj) : error LNK2001: unresolved external symbol __imp___vsnprintf
+fltk2-dbg.lib(NumericInput.obj) : error LNK2019: unresolved external symbol __imp___snprintf referenced in function "public: void __thiscall fltk::NumericInput::value(double)" (?value@NumericInput@fltk@@QAEXN@Z)
+fltk2-dbg.lib(FileChooser2.obj) : error LNK2001: unresolved external symbol __imp___snprintf
+fltk2-dbg.lib(Preferences.obj) : error LNK2001: unresolved external symbol __imp___snprintf
+fltk2-dbg.lib(FileBrowser.obj) : error LNK2001: unresolved external symbol __imp___snprintf
+fltk2-dbg.lib(Color.obj) : error LNK2019: unresolved external symbol __imp__sscanf referenced in function "unsigned int __cdecl fltk::parsecolor(char const *,unsigned int)" (?parsecolor@fltk@@YAIPBDI@Z)
+fltk2-dbg.lib(WinMain.obj) : error LNK2001: unresolved external symbol __imp____argc
+fltk2-dbg.lib(WinMain.obj) : error LNK2001: unresolved external symbol __imp____argv
+..\bin\hoapcontrol-dbg.exe : fatal error LNK1120: 27 unresolved externals

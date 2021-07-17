@@ -1,0 +1,36 @@
+﻿Build started 10/24/2013 1:29:15 PM.
+     1>Project "C:\Users\Robert\Desktop\labcode\hoapcontrol\visualc9\hoapcontrol.vcxproj" on node 2 (build target(s)).
+     1>InitializeBuildStatus:
+         Touching ".\obj\hoapcontrol_Debug\hoapcontrol.unsuccessfulbuild".
+       ClCompile:
+         All outputs are up-to-date.
+       ManifestResourceCompile:
+         C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\bin\rc.exe /nologo /fo".\obj\hoapcontrol_Debug\hoapcontrol-dbg.exe.embed.manifest.res" .\obj\hoapcontrol_Debug\hoapcontrol-dbg_manifest.rc 
+     1>C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\Microsoft.CppBuild.targets(990,5): warning MSB8012: TargetPath(C:\Users\Robert\Desktop\labcode\hoapcontrol\visualc9\.\obj\hoapcontrol_Debug\hoapcontrol-dbg.exe) does not match the Linker's OutputFile property value (C:\Users\Robert\Desktop\labcode\hoapcontrol\bin\hoapcontrol-dbg.exe). This may cause your project to build incorrectly. To correct this, please make sure that $(OutDir), $(TargetName) and $(TargetExt) property values match the value specified in %(Link.OutputFile).
+       Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"..\bin\hoapcontrol-dbg.exe" /INCREMENTAL /NOLOGO /LIBPATH:..\..\graphsim\lib\ /LIBPATH:..\..\fltk\lib /LIBPATH:..\..\raknet\Lib\ Ws2_32.lib RakNetLibStatic.lib "graphsim-dbg.lib" "graphsimfl-dbg.lib" "fltk2-dbg.lib" opengl32.lib glu32.lib wsock32.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /ManifestFile:".\obj\hoapcontrol_Debug\hoapcontrol-dbg.exe.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:".\obj\hoapcontrol_Debug\testfl.pdb" /SUBSYSTEM:WINDOWS /TLBID:1 /DYNAMICBASE:NO /IMPLIB:".\obj\hoapcontrol_Debug\hoapcontrol-dbg.lib" /MACHINE:X86 ".\obj\hoapcontrol_Debug\hoapcontrol-dbg.exe.embed.manifest.res"
+         .\obj\hoapcontrol_Debug\app_fluid.obj
+         .\obj\hoapcontrol_Debug\app_foot_viewer.obj
+         .\obj\hoapcontrol_Debug\app_graph_viewer.obj
+         .\obj\hoapcontrol_Debug\app_main.obj
+         .\obj\hoapcontrol_Debug\app_main_win.obj
+         .\obj\hoapcontrol_Debug\app_nla_viewer.obj
+         .\obj\hoapcontrol_Debug\app_viewer.obj
+         .\obj\hoapcontrol_Debug\curve.obj
+         .\obj\hoapcontrol_Debug\draw_primitives.obj
+         .\obj\hoapcontrol_Debug\foot.obj
+         .\obj\hoapcontrol_Debug\hoap_client.obj
+         .\obj\hoapcontrol_Debug\jacobian_ik.obj
+         .\obj\hoapcontrol_Debug\particle_ik.obj
+         .\obj\hoapcontrol_Debug\time_slider.obj
+         .\obj\hoapcontrol_Debug\track.obj
+         .\obj\hoapcontrol_Debug\utilities.obj
+         .\obj\hoapcontrol_Debug\vicon_client.obj
+         .\obj\hoapcontrol_Debug\walk_controler.obj
+         .\obj\hoapcontrol_Debug\walk_generator.obj
+     1>LINK : fatal error LNK1104: cannot open file 'RakNetLibStatic.lib'
+     1>Done Building Project "C:\Users\Robert\Desktop\labcode\hoapcontrol\visualc9\hoapcontrol.vcxproj" (build target(s)) -- FAILED.
+
+Build FAILED.
+
+Time Elapsed 00:00:00.24

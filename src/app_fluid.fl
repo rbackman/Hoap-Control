@@ -1,0 +1,1673 @@
+# data file for the FLTK User Interface Designer (FLUID)
+version 2.1000 
+images_dir header_name 
+header_name {.h} 
+code_name {.cpp} 
+gridx 5 
+gridy 5 
+snap 3
+decl {\# include "gsim/fl_viewer.h"} {public
+} 
+
+decl {\# include "app_events.h"} {public
+} 
+
+decl {\# include "app_viewer.h"} {public
+} 
+
+decl {\# include "time_slider.h"} {public
+} 
+
+decl {\#include "app_graph_viewer.h"} {public
+} 
+
+decl {\#include "app_nla_viewer.h"} {public
+} 
+
+decl {\#include "app_foot_viewer.h"} {public
+} 
+
+class AppFluid {open
+} {
+  decl {virtual void event ( AppEvent e )=0;} {public
+  }
+  Function {AppFluid()} {open
+  } {
+    {fltk::Window} ui_window {
+      label {Hoap Controller} open
+      xywh {1781 153 910 575} resizable visible
+    } {
+      {fltk::TiledGroup} {} {open
+        xywh {0 0 910 575} resizable color 0xb4b2f000
+      } {
+        {fltk::Group} {} {open
+          xywh {320 15 585 555}
+        } {
+          {fltk::Group} ui_message {
+            label text
+            xywh {0 535 585 20} align 32 box DOWN_BOX labelfont 1 textfont 1 color 0xf7f9ff00 textcolor 0xa7000000 labelcolor 0xbd000000 labelsize 11 textsize 11
+          } {}
+          {fltk::Group} ui_viewer {
+            xywh {0 5 585 530} resizable box DOWN_BOX color 0xa9a9a900
+            class AppViewer
+          } {}
+        }
+        {fltk::Group} ui_main_group {open
+          xywh {10 0 310 575} box FLAT_BOX
+        } {
+          {fltk::MenuBar} {} {open
+            xywh {0 0 292 20}
+          } {
+            {fltk::Item} {} {
+              label X
+              callback {event ( evQuit );}
+              labelfont 1 textfont 1 color 0xece9d800 textcolor 0xd40d2900 selection_textcolor 0xff122b00
+            }
+            {fltk::ItemGroup} {} {
+              label draw
+              callback {event(evAxis);}
+              color 0xece9d800
+            } {
+              {fltk::Item} {} {
+                label axis
+                }
+            }
+            {fltk::ItemGroup} {} {
+              label edit
+              color 0xece9d800
+            } {
+              {fltk::Item} {} {
+                label parmeters
+                callback {event ( evEditParameters );}
+                }
+              {fltk::Item} {} {
+                label {save config}
+                callback {event(evSaveConfig);}
+                }
+              {fltk::Item} {} {
+                label {load config}
+                callback {event(evLoadConfig);}
+                }
+              {fltk::Item} {} {
+                label {save posture to csv}
+                callback {event(evSavePos);}
+                }
+            }
+            {fltk::ItemGroup} {} {
+              label view
+              } {
+              {fltk::Item} {} {
+                label {Graph Viewer}
+                callback {event(evGraphView);}
+                }
+              {fltk::Item} {} {
+                label {Track Editor}
+                callback {event(evShowTrack);}
+                }
+              {fltk::Item} {} {
+                label timeline
+                callback {event(evTimeline);}
+                }
+            }
+            {fltk::ItemGroup} {} {
+              label motion
+              } {
+              {fltk::Item} {} {
+                label {load motion}
+                callback {event(evLoadMotion);}
+                }
+            }
+            {fltk::ItemGroup} {} {
+              label walk
+              } {
+              {fltk::Item} {} {
+                label {draw trajectory}
+                callback {event(evDrawTraj);}
+                }
+              {fltk::Item} {} {
+                label {set walk start}
+                callback {event(evSetStart);}
+                }
+              {fltk::Item} {} {
+                label {set walk end}
+                callback {event(evSetEnd);}
+                }
+              {fltk::Item} {} {
+                label {bake walk}
+                callback {event(evMakeWalk);}
+                }
+              {fltk::Item} {} {
+                label {make steps}
+                callback {event(evMakeSteps);}
+                }
+              {fltk::Item} {} {
+                label {clear goals}
+                callback {event(evClearGoals);}
+                }
+              {fltk::Item} {} {
+                label {start queue}
+                callback {event(evStartQueue);}
+                }
+              {fltk::Item} {} {
+                label {reset walk}
+                callback {event(evResetWalk);}
+                }
+            }
+            {fltk::ItemGroup} {} {
+              label net open
+              } {
+              {fltk::Divider} {} {
+                }
+              {fltk::Item} {} {
+                label {hoap connect}
+                }
+              {fltk::Item} {} {
+                label {send hello}
+                callback {event(evHello);}
+                }
+              {fltk::Item} {} {
+                label {get current position}
+                callback {event(evGetPos);}
+                }
+              {fltk::Item} {} {
+                label {send current posture}
+                callback {event(evSendPos);}
+                }
+              {fltk::Divider} {} {
+                }
+              {fltk::Item} {} {
+                label {vicon connect}
+                callback {event(evViconConnect);}
+                }
+            }
+          }
+          {fltk::Group} {} {open
+            xywh {0 20 310 555} box DOWN_BOX color 0xc3e6f000
+          } {
+            {fltk::TabGroup} ui_main_tab {open
+              xywh {0 0 310 555} box FLAT_BOX
+            } {
+              {fltk::Group} {} {
+                label PIK open
+                xywh {25 25 285 530}
+              } {
+                {fltk::Button} {} {
+                  label run
+                  callback {event(evPIKRun);}
+                  xywh {25 25 130 30}
+                }
+                {fltk::Button} {} {
+                  label reset
+                  callback {event(evPIKReset);}
+                  xywh {25 55 130 30}
+                }
+                {fltk::ValueSlider} ui_sikStiffness {
+                  label {arm stiffness}
+                  callback {event(evUpdateSprings);}
+                  xywh {65 95 130 30} align 4 maximum 5 value 2.7
+                }
+                {fltk::ValueSlider} ui_sikDamp {
+                  label damping
+                  callback {event(evUpdateSprings);} selected
+                  xywh {65 170 130 30} align 4 value 0.6
+                }
+                {fltk::ValueSlider} ui_sikGrav {
+                  label gravity
+                  callback {event(evUpdateSprings);}
+                  xywh {65 200 130 30} align 4
+                }
+                {fltk::ValueSlider} ui_sikStepSize {
+                  label {step size}
+                  callback {event(evUpdateSprings);}
+                  xywh {65 225 130 30} align 4 value 0.1
+                }
+                {fltk::ValueSlider} ui_sikHandStiffness {
+                  label {hand stiffness}
+                  callback {event(evUpdateSprings);}
+                  xywh {65 125 130 30} align 4 maximum 5 value 2.7
+                }
+              }
+              {fltk::Group} {} {
+                label JIK
+                xywh {25 25 285 530} hide
+              } {
+                {fltk::Button} {} {
+                  label evaluate
+                  callback {event(evEval);}
+                  xywh {115 45 115 25}
+                }
+                {fltk::ValueInput} ui_dEnd {
+                  label {end effector step}
+                  xywh {115 70 115 25} minimum 0.0001 maximum 20 step 0.001 value 0.5
+                }
+                {fltk::Button} {} {
+                  label run
+                  callback {event(evRun);}
+                  xywh {115 95 115 25}
+                }
+                {fltk::Button} {} {
+                  label reset
+                  callback {event(evResetJacobian);}
+                  xywh {115 120 115 25}
+                }
+                {fltk::ValueInput} ui_tol {
+                  label {end point tol}
+                  xywh {115 145 115 25} minimum 0.0001 maximum 3 step 0.01 value 1
+                }
+                {fltk::Choice} ui_solveMethod {
+                  label {solve method} open
+                  xywh {115 20 115 25}
+                } {
+                  {fltk::Item} {} {
+                    label {pseudo-Inverse}
+                    }
+                  {fltk::Item} {} {
+                    label transpose
+                    }
+                  {fltk::Item} {} {
+                    label {damped least squares}
+                    }
+                }
+                {fltk::CheckButton} ui_debug {
+                  label debug
+                  xywh {30 205 25 25} align 4
+                }
+                {fltk::ValueSlider} ui_dampC {
+                  label {damping constant}
+                  xywh {100 240 115 25} align 4 maximum 100 step 0.1 value 2
+                }
+                {fltk::CheckButton} ui_col {
+                  label collision
+                  xywh {205 300 25 25} align 4
+                }
+                {fltk::ValueInput} ui_obsRep {
+                  label {obstacle repel}
+                  xywh {115 325 115 25} minimum -3 maximum 3 step 0.01 value -1
+                }
+                {fltk::ValueSlider} ui_falloff {
+                  label {fall off}
+                  xywh {115 350 115 25} align 4 maximum 100 step 0.1 value 8
+                }
+                {fltk::ValueSlider} ui_maxV {
+                  label {max Velocity}
+                  xywh {115 390 115 25} align 4 minimum 0.001 maximum 2 step 0.1 value 0.001
+                }
+                {fltk::CheckButton} ui_stopSolve {
+                  label stop
+                  xywh {70 205 25 25} value 1
+                }
+                {fltk::InvisibleBox} {} {
+                  xywh {55 432 150 70} box DOWN_BOX
+                }
+                {fltk::ValueInput} ui_JtransVel {
+                  label {root trans Vel}
+                  xywh {115 170 115 25} minimum 0.0001 maximum 3 step 0.01 value 0.1
+                }
+                {fltk::CheckButton} ui_hipsJacobian {
+                  label hips
+                  xywh {130 205 25 25}
+                }
+                {fltk::CheckButton} {ui_JacHips[0]} {
+                  label X
+                  callback {event(evJacobianCreate);}
+                  xywh {105 435 25 25} align 4 value 1
+                }
+                {fltk::CheckButton} {ui_JacHips[1]} {
+                  label Y
+                  callback {event(evJacobianCreate);}
+                  xywh {105 455 25 25} align 4 value 1
+                }
+                {fltk::CheckButton} {ui_JacHips[2]} {
+                  label X
+                  callback {event(evJacobianCreate);}
+                  xywh {105 474 25 25} align 4 value 1
+                }
+                {fltk::CheckButton} {ui_JacHips[3]} {
+                  label X
+                  callback {event(evJacobianCreate);}
+                  xywh {170 436 25 25} align 4 value 1
+                }
+                {fltk::CheckButton} {ui_JacHips[4]} {
+                  label Y
+                  callback {event(evJacobianCreate);}
+                  xywh {170 456 25 25} align 4 value 1
+                }
+                {fltk::CheckButton} {ui_JacHips[5]} {
+                  label X
+                  callback {event(evJacobianCreate);}
+                  xywh {170 475 25 25} align 4 value 1
+                }
+                {fltk::InvisibleBox} {} {
+                  label {Hips Rot}
+                  xywh {65 455 25 25} align 160
+                }
+                {fltk::InvisibleBox} {} {
+                  label {Hips Pos}
+                  xywh {130 455 25 25} align 160
+                }
+              }
+              {fltk::Group} {} {
+                label IK
+                xywh {5 25 305 515} hide
+              } {
+                {fltk::Browser} ui_keylist {
+                  callback {event(evKeyMenu);} open
+                  xywh {95 25 125 155}
+                } {}
+                {fltk::InvisibleBox} {} {
+                  xywh {0 295 290 220} box DOWN_BOX color 0x9a9a9a00
+                }
+                {fltk::Button} {} {
+                  label {Reset IK}
+                  callback {event(evResetIK);}
+                  xywh {10 305 60 30}
+                }
+                {fltk::Group} {} {
+                  xywh {214 342 56 50} box DOWN_BOX color 0xd2d2d200
+                } {
+                  {fltk::RadioButton} ui_ikrot {
+                    label Rot
+                    xywh {0 0 25 25}
+                  }
+                  {fltk::RadioButton} {} {
+                    label Trans
+                    xywh {0 25 25 25} value 1
+                  }
+                }
+                {fltk::Button} {} {
+                  label {create IK}
+                  callback {event(evSetIK);}
+                  xywh {10 340 60 30}
+                }
+                {fltk::CheckButton} ui_visgeo {
+                  label visgeo
+                  callback {event(evViewPref);}
+                  xywh {60 215 60 20} value 1
+                }
+                {fltk::CheckButton} ui_skeleton {
+                  label skeleton
+                  xywh {60 235 60 20}
+                }
+                {fltk::CheckButton} ui_part_com {
+                  label {parts COM}
+                  xywh {60 255 60 20}
+                }
+                {fltk::CheckButton} ui_com {
+                  label COM
+                  xywh {160 195 60 20}
+                }
+                {fltk::CheckButton} ui_support {
+                  label support
+                  xywh {160 215 60 20}
+                }
+                {fltk::CheckButton} ui_test_collisions {
+                  label collisions
+                  xywh {160 235 60 20}
+                }
+                {fltk::CheckButton} ui_jointaxis {
+                  label {draw joint axis}
+                  callback {event(evViewPref);}
+                  xywh {60 195 60 20}
+                }
+                {fltk::Button} {} {
+                  label Land
+                  callback {event(evLand);}
+                  xywh {10 375 60 30}
+                }
+                {fltk::ValueSlider} {ui_IK[0]} {
+                  label X
+                  callback {event(evIKSlide);}
+                  xywh {20 435 115 25} align 4 minimum -10 maximum 10 step 0.2
+                }
+                {fltk::ValueSlider} {ui_IK[1]} {
+                  label Y
+                  callback {event(evIKSlide);}
+                  xywh {20 460 115 25} align 4 minimum -10 maximum 10 step 0.2
+                }
+                {fltk::ValueSlider} {ui_IK[2]} {
+                  label Z
+                  callback {event(evIKSlide);}
+                  xywh {20 485 115 25} align 4 minimum -10 maximum 10 step 0.2
+                }
+                {fltk::ValueSlider} {ui_IK[3]} {
+                  label X
+                  callback {event(evIKSlide);}
+                  xywh {165 435 115 25} align 4 minimum -10 maximum 10 step 0.2
+                }
+                {fltk::ValueSlider} {ui_IK[4]} {
+                  label Y
+                  callback {event(evIKSlide);}
+                  xywh {165 460 115 25} align 4 minimum -10 maximum 10 step 0.2
+                }
+                {fltk::ValueSlider} {ui_IK[5]} {
+                  label Z
+                  callback {event(evIKSlide);}
+                  xywh {165 485 115 25} align 4 minimum -10 maximum 10 step 0.2
+                }
+                {fltk::ValueSlider} {ui_IK[6]} {
+                  label X
+                  callback {event(evIKSlide);}
+                  xywh {90 325 115 25} align 4 minimum -10 maximum 10 step 0.2
+                }
+                {fltk::ValueSlider} {ui_IK[7]} {
+                  label Y
+                  callback {event(evIKSlide);}
+                  xywh {90 350 115 25} align 4 minimum -10 maximum 10 step 0.2
+                }
+                {fltk::ValueSlider} {ui_IK[8]} {
+                  label Z
+                  callback {event(evIKSlide);}
+                  xywh {90 375 115 25} align 4 minimum -10 maximum 10 step 0.2
+                }
+                {fltk::InvisibleBox} {} {
+                  label {Base IK}
+                  xywh {105 300 75 20} box DOWN_BOX color 0x9a9a9a00
+                }
+                {fltk::InvisibleBox} {} {
+                  label {Left Foot IK}
+                  xywh {40 410 75 20} box DOWN_BOX color 0x9a9a9a00
+                }
+                {fltk::InvisibleBox} {} {
+                  label {Right Foot IK}
+                  xywh {180 410 75 20} box DOWN_BOX color 0x9a9a9a00
+                }
+                {fltk::CheckButton} ui_arm_ik_active {
+                  label {arm IK}
+                  callback {event(evArmIKActive);}
+                  xywh {160 255 60 20}
+                }
+              }
+              {fltk::Group} {} {
+                label Ctl
+                xywh {5 25 305 515} hide
+              } {
+                {fltk::ValueSlider} ui_cont_stepDistance {
+                  label {step distance}
+                  callback {event(evControl);}
+                  xywh {55 140 145 20} align 1 maximum 20 value 1
+                }
+                {fltk::ValueSlider} ui_cont_stepHeight {
+                  label {step height}
+                  callback {event(evControl);}
+                  xywh {55 175 145 20} align 1 maximum 20 value 3
+                }
+                {fltk::ValueSlider} ui_cont_stepVelocity {
+                  label velocity
+                  callback {event(evControl);}
+                  xywh {55 495 145 20} align 1 maximum 20 value 1
+                }
+                {fltk::ValueSlider} ui_cont_time {
+                  label time
+                  callback {event(evControl);}
+                  xywh {20 35 230 25} align 1
+                }
+                {fltk::Button} {} {
+                  label {start }
+                  callback {event(evStartControl);}
+                  xywh {55 390 145 20}
+                }
+                {fltk::Choice} ui_cont_state {
+                  label {Step State} open
+                  xywh {85 75 125 25}
+                } {
+                  {fltk::Item} {} {
+                    label RootToLeft
+                    }
+                  {fltk::Item} {} {
+                    label RootToRight
+                    }
+                  {fltk::Item} {} {
+                    label RightMove
+                    }
+                  {fltk::Item} {} {
+                    label LeftMove
+                    }
+                  {fltk::Item} {} {
+                    label RightToRest
+                    }
+                  {fltk::Item} {} {
+                    label LeftToRest
+                    }
+                  {fltk::Item} {} {
+                    label RestToLeft
+                    }
+                  {fltk::Item} {} {
+                    label RestToRight
+                    }
+                }
+                {fltk::ValueSlider} ui_cont_hipHeight {
+                  label {hips height}
+                  callback {event(evControl);}
+                  xywh {55 210 145 20} align 1 minimum 20 maximum 40 value 37.4
+                }
+                {fltk::ValueSlider} ui_cont_hipDist {
+                  label {hips distance}
+                  callback {event(evControl);}
+                  xywh {55 245 145 20} align 1 maximum 10 value 3
+                }
+                {fltk::Button} {} {
+                  label stop
+                  callback {event(evControlStop);}
+                  xywh {55 360 145 25}
+                }
+                {fltk::ValueSlider} ui_cont_fps {
+                  label fps
+                  callback {event(evControl);}
+                  xywh {55 285 145 20} align 1 maximum 120 step 1 value 30
+                }
+                {fltk::ValueSlider} ui_cont_res {
+                  label resolution
+                  callback {event(evControl);}
+                  xywh {55 315 145 20} align 1 minimum 12 maximum 100 step 1 value 30
+                }
+              }
+              {fltk::Group} {} {
+                label Sns
+                xywh {10 30 285 525} hide
+              } {
+                {fltk::ValueOutput} {ui_renc[6]} {
+                  label Rsh
+                  xywh {60 230 65 25}
+                }
+                {fltk::ValueOutput} {ui_renc[7]} {
+                  label Rua
+                  xywh {60 255 65 25}
+                }
+                {fltk::ValueOutput} {ui_renc[8]} {
+                  label Ruar
+                  xywh {60 280 65 25}
+                }
+                {fltk::ValueOutput} {ui_renc[9]} {
+                  label Rfa
+                  xywh {60 305 65 25}
+                }
+                {fltk::ValueOutput} {ui_renc[16]} {
+                  label Lsh
+                  xywh {190 230 65 25}
+                }
+                {fltk::ValueOutput} {ui_renc[17]} {
+                  label Lua
+                  xywh {190 255 65 25}
+                }
+                {fltk::ValueOutput} {ui_renc[18]} {
+                  label Luar
+                  xywh {190 280 65 25}
+                }
+                {fltk::ValueOutput} {ui_renc[19]} {
+                  label Lfa
+                  xywh {190 305 65 25}
+                }
+                {fltk::ValueOutput} {ui_renc[20]} {
+                  label legBase
+                  xywh {125 332 65 25}
+                }
+                {fltk::ValueOutput} {ui_renc[2]} {
+                  label RLeg
+                  xywh {55 420 65 25}
+                }
+                {fltk::ValueOutput} {ui_renc[1]} {
+                  label RLegPitch
+                  xywh {55 395 65 25}
+                }
+                {fltk::ValueOutput} {ui_renc[0]} {
+                  label RlegRoll
+                  xywh {55 370 65 25}
+                }
+                {fltk::ValueOutput} {ui_renc[3]} {
+                  label Rknee
+                  xywh {55 445 65 25}
+                }
+                {fltk::ValueOutput} {ui_renc[4]} {
+                  label Rfoottwist
+                  xywh {55 470 65 25}
+                }
+                {fltk::ValueOutput} {ui_renc[5]} {
+                  label Rfootpitch
+                  xywh {55 495 65 25}
+                }
+                {fltk::ValueOutput} {ui_renc[12]} {
+                  label LLeg
+                  xywh {190 415 65 25}
+                }
+                {fltk::ValueOutput} {ui_renc[11]} {
+                  label LLegPitch
+                  xywh {190 390 65 25}
+                }
+                {fltk::ValueOutput} {ui_renc[10]} {
+                  label LLegRoll
+                  xywh {190 365 65 25}
+                }
+                {fltk::ValueOutput} {ui_renc[13]} {
+                  label LKnee
+                  xywh {190 440 65 25}
+                }
+                {fltk::ValueOutput} {ui_renc[14]} {
+                  label LFoottwist
+                  xywh {190 465 65 25}
+                }
+                {fltk::ValueOutput} {ui_renc[15]} {
+                  label Lfootpitch
+                  xywh {190 490 65 25}
+                }
+                {fltk::ValueOutput} {ui_sense[0]} {
+                  label {front right}
+                  xywh {85 20 40 25}
+                }
+                {fltk::ValueOutput} {ui_sense[1]} {
+                  label {front left}
+                  xywh {85 45 40 25}
+                }
+                {fltk::ValueOutput} {ui_sense[2]} {
+                  label {back right}
+                  xywh {85 70 40 25}
+                }
+                {fltk::ValueOutput} {ui_sense[3]} {
+                  label {back left}
+                  xywh {85 95 40 25}
+                }
+                {fltk::ValueOutput} {ui_sense[4]} {
+                  label {front right}
+                  xywh {185 20 40 25}
+                }
+                {fltk::ValueOutput} {ui_sense[5]} {
+                  label {front left}
+                  xywh {185 45 40 25}
+                }
+                {fltk::ValueOutput} {ui_sense[6]} {
+                  label {back right}
+                  xywh {185 70 40 25}
+                }
+                {fltk::ValueOutput} {ui_sense[7]} {
+                  label {back left}
+                  xywh {185 95 40 25}
+                }
+                {fltk::InvisibleBox} {} {
+                  label {right foot}
+                  xywh {55 0 75 25} align 32
+                }
+                {fltk::InvisibleBox} {} {
+                  label {left foot}
+                  xywh {155 0 75 25} align 32
+                }
+                {fltk::InvisibleBox} {} {
+                  label accel
+                  xywh {70 115 75 25} align 32
+                }
+                {fltk::ValueOutput} {ui_sense[8]} {
+                  label X
+                  xywh {85 135 40 25}
+                }
+                {fltk::ValueOutput} {ui_sense[9]} {
+                  label Y
+                  xywh {85 160 40 25}
+                }
+                {fltk::ValueOutput} {ui_sense[10]} {
+                  label Z
+                  xywh {85 185 40 25}
+                }
+                {fltk::InvisibleBox} {} {
+                  label gyro
+                  xywh {170 120 75 25} align 32
+                }
+                {fltk::ValueOutput} {ui_sense[11]} {
+                  label X
+                  xywh {185 140 40 25}
+                }
+                {fltk::ValueOutput} {ui_sense[12]} {
+                  label Y
+                  xywh {185 165 40 25}
+                }
+                {fltk::ValueOutput} {ui_sense[13]} {
+                  label Z
+                  xywh {185 190 40 25}
+                }
+              }
+              {fltk::Group} {} {
+                label Enc
+                xywh {5 25 305 505} hide labelfont 1 labelsize 11 textsize 11
+              } {
+                {fltk::InvisibleBox} {} {
+                  xywh {1 35 270 445} box DOWN_BOX color 0xc0d5f000
+                }
+                {fltk::ValueOutput} {ui_enc[6]} {
+                  label Rsh
+                  xywh {62 124 65 25}
+                }
+                {fltk::ValueOutput} {ui_enc[7]} {
+                  label Rua
+                  xywh {62 149 65 25}
+                }
+                {fltk::ValueOutput} {ui_enc[8]} {
+                  label Ruar
+                  xywh {62 174 65 25}
+                }
+                {fltk::ValueOutput} {ui_enc[9]} {
+                  label Rfa
+                  xywh {62 199 65 25}
+                }
+                {fltk::ValueOutput} {ui_enc[25]} {
+                  label Rfar
+                  xywh {62 224 65 25}
+                }
+                {fltk::ValueOutput} {ui_enc[16]} {
+                  label Lsh
+                  xywh {197 124 65 25}
+                }
+                {fltk::ValueOutput} {ui_enc[17]} {
+                  label Lua
+                  xywh {197 149 65 25}
+                }
+                {fltk::ValueOutput} {ui_enc[18]} {
+                  label Luar
+                  xywh {197 174 65 25}
+                }
+                {fltk::ValueOutput} {ui_enc[19]} {
+                  label Lfa
+                  xywh {197 199 65 25}
+                }
+                {fltk::ValueOutput} {ui_enc[27]} {
+                  label Lfar
+                  xywh {197 224 65 25}
+                }
+                {fltk::ValueOutput} {ui_enc[20]} {
+                  label legBase
+                  xywh {132 282 65 25}
+                }
+                {fltk::ValueOutput} {ui_enc[2]} {
+                  label RLeg
+                  xywh {62 370 65 25}
+                }
+                {fltk::ValueOutput} {ui_enc[1]} {
+                  label RLegPitch
+                  xywh {62 345 65 25}
+                }
+                {fltk::ValueOutput} {ui_enc[0]} {
+                  label RlegRoll
+                  xywh {62 320 65 25}
+                }
+                {fltk::ValueOutput} {ui_enc[3]} {
+                  label Rknee
+                  xywh {62 395 65 25}
+                }
+                {fltk::ValueOutput} {ui_enc[4]} {
+                  label Rfoottwist
+                  xywh {62 420 65 25}
+                }
+                {fltk::ValueOutput} {ui_enc[5]} {
+                  label Rfootpitch
+                  xywh {62 445 65 25}
+                }
+                {fltk::ValueOutput} {ui_enc[12]} {
+                  label LLeg
+                  xywh {197 365 65 25}
+                }
+                {fltk::ValueOutput} {ui_enc[11]} {
+                  label LLegPitch
+                  xywh {197 340 65 25}
+                }
+                {fltk::ValueOutput} {ui_enc[10]} {
+                  label LLegRoll
+                  xywh {197 315 65 25}
+                }
+                {fltk::ValueOutput} {ui_enc[13]} {
+                  label LKnee
+                  xywh {197 390 65 25}
+                }
+                {fltk::ValueOutput} {ui_enc[14]} {
+                  label LFoottwist
+                  xywh {197 415 65 25}
+                }
+                {fltk::ValueOutput} {ui_enc[15]} {
+                  label Lfootpitch
+                  xywh {197 440 65 25}
+                }
+                {fltk::ValueOutput} {ui_enc[24]} {
+                  label Rfinger
+                  xywh {62 249 65 25}
+                }
+                {fltk::ValueOutput} {ui_enc[26]} {
+                  label Lfinger
+                  xywh {197 249 65 25}
+                }
+                {fltk::ValueOutput} {ui_enc[23]} {
+                  label {Head R}
+                  xywh {128 44 65 25}
+                }
+                {fltk::ValueOutput} {ui_enc[22]} {
+                  label {Head P}
+                  xywh {128 69 65 25}
+                }
+                {fltk::ValueOutput} {ui_enc[21]} {
+                  label {Head T}
+                  xywh {128 94 65 25}
+                }
+                {fltk::CheckButton} ui_actValues {
+                  label {Actual Values}
+                  callback {event(evJntSlide);}
+                  xywh {25 10 85 25}
+                }
+              }
+              {fltk::Group} {} {
+                label Walk
+                xywh {0 30 305 505} hide
+              } {
+                {fltk::InvisibleBox} {} {
+                  xywh {15 5 270 75} align 33 box DOWN_BOX color 0xaaaaaa00
+                }
+                {fltk::InvisibleBox} {} {
+                  xywh {155 80 130 85} align 33 box DOWN_BOX color 0xaaaaaa00
+                }
+                {fltk::InvisibleBox} {} {
+                  label DCDT
+                  xywh {15 335 270 170} align 33 box DOWN_BOX color 0xaaaaaa00
+                }
+                {fltk::InvisibleBox} {} {
+                  label {Walk Params}
+                  xywh {15 80 140 254} align 33 box DOWN_BOX color 0xaaaaaa00
+                }
+                {fltk::Button} {} {
+                  label {play walk}
+                  callback {event(evPlayWalk);}
+                  xywh {60 15 50 30} align 128 buttonbox ROUND_UP_BOX color 0xff0000
+                }
+                {fltk::ValueSlider} ui_turnAdjustAng {
+                  label {turn adjust angle}
+                  callback {event(evMakeSteps);}
+                  xywh {25 165 110 15} align 1 maximum 90 value 8
+                }
+                {fltk::ValueSlider} ui_stepHeight {
+                  label {foot height}
+                  callback {event(evMakeSteps);}
+                  xywh {26 225 110 15} align 1 maximum 20 value 2.5
+                }
+                {fltk::ValueSlider} ui_stepDistance {
+                  label {max step dist}
+                  callback {event(evMakeSteps);}
+                  xywh {26 284 110 16} align 1 maximum 30 value 18
+                }
+                {fltk::ValueInput} ui_numSteps {
+                  label {Num Steps}
+                  callback {event(evMakeSteps);}
+                  xywh {245 350 35 30} step 1 value 5
+                  class {fltk::ValueOutput}
+                }
+                {fltk::InvisibleBox} {} {
+                  label {Hip Adjust}
+                  xywh {155 165 130 170} align 33 box DOWN_BOX color 0xaaaaaa00
+                }
+                {fltk::Button} {} {
+                  label fwd
+                  callback {event(evHipFwd);}
+                  xywh {208 215 30 20}
+                }
+                {fltk::Button} {} {
+                  label rev
+                  callback {event(evHipRev);}
+                  xywh {208 255 30 20}
+                }
+                {fltk::Button} {} {
+                  label left
+                  callback {event(evHipLeft);}
+                  xywh {175 235 30 20}
+                }
+                {fltk::Button} {} {
+                  label right
+                  callback {event(evHipRight);}
+                  xywh {240 235 30 20}
+                }
+                {fltk::Button} {} {
+                  label up
+                  callback {event(evHipUp);}
+                  xywh {180 275 35 20}
+                }
+                {fltk::Button} {} {
+                  label down
+                  callback {event(evHipDown);}
+                  xywh {230 275 35 20}
+                }
+                {fltk::ValueInput} ui_hipAmount {
+                  label amt
+                  xywh {180 305 35 25} align 5 maximum 5 step 0.2 value 0.2
+                }
+                {fltk::ValueInput} ui_numStepInterp {
+                  label Interps
+                  callback {event(evMakeSteps);}
+                  xywh {25 125 30 25} align 5 step 1 value 30
+                }
+                {fltk::ValueInput} ui_StepFPS {
+                  label fps
+                  xywh {67 125 30 25} align 1 maximum 120 step 1 value 30
+                }
+                {fltk::CheckButton} ui_showRoot {
+                  label {show root}
+                  callback {event(evMakeSteps);}
+                  xywh {170 85 20 15}
+                }
+                {fltk::CheckButton} ui_playIncr {
+                  label {play incremental}
+                  xywh {170 100 20 15}
+                }
+                {fltk::Button} {} {
+                  label reset
+                  callback {event(evHipReset);}
+                  xywh {230 305 35 20}
+                }
+                {fltk::Button} {} {
+                  label {add goal}
+                  callback {event(evAddGoal);}
+                  xywh {170 15 50 30} align 128 color 0xe6e6e600
+                }
+                {fltk::Button} {} {
+                  label Flatten
+                  callback {event(evFlatten);}
+                  xywh {30 355 45 25}
+                }
+                {fltk::Button} {} {
+                  label Search
+                  callback {event(evSearch);}
+                  xywh {75 355 45 25}
+                }
+                {fltk::CheckButton} ui_moveRoot {
+                  label {move root}
+                  callback {event(evMoveRoot);}
+                  xywh {170 115 20 15}
+                }
+                {fltk::Button} {} {
+                  label {Export }
+                  callback {event(evExportMesh);}
+                  xywh {120 355 45 25}
+                }
+                {fltk::ValueSlider} ui_channelRad {
+                  label {channel Rad}
+                  callback {event(evSearch);}
+                  xywh {170 399 110 21} align 1 maximum 50 value 18
+                }
+                {fltk::ValueSlider} ui_pathRad {
+                  label {path Rad}
+                  callback {event(evSearch);}
+                  xywh {170 434 110 21} align 1 maximum 40 value 18
+                }
+                {fltk::ValueSlider} ui_pathdangle {
+                  label dandgle
+                  callback {event(evSearch);}
+                  xywh {170 469 110 21} align 1 maximum 90 value 5
+                }
+                {fltk::CheckButton} ui_showTri {
+                  label {show triangles}
+                  callback {event(evSearch);}
+                  xywh {30 411 20 20} vertical
+                }
+                {fltk::CheckButton} ui_showConst {
+                  label {show constraints}
+                  callback {event(evSearch);}
+                  xywh {30 428 20 20}
+                }
+                {fltk::CheckButton} ui_showFloorPoly {
+                  label {show floor poly}
+                  callback {event(evSearch);}
+                  xywh {30 445 20 20}
+                }
+                {fltk::CheckButton} ui_showPath {
+                  label {show path}
+                  callback {event(evSearch);}
+                  xywh {30 396 20 20} value 1
+                }
+                {fltk::CheckButton} ui_showChannel {
+                  label {show channel}
+                  callback {event(evSearch);}
+                  xywh {30 460 20 20}
+                }
+                {fltk::ValueSlider} ui_turnAdjustDist {
+                  label {turn adjust dist}
+                  callback {event(evMakeSteps);}
+                  xywh {25 195 110 15} align 1 maximum 10 value 1.8
+                }
+                {fltk::CheckButton} ui_autoStart {
+                  label {auto Start queue}
+                  xywh {170 131 20 15}
+                }
+                {fltk::CheckButton} ui_floorBoundingBox {
+                  label {bounding box}
+                  callback {event(evFlatten);}
+                  xywh {30 380 20 20} value 1
+                }
+                {fltk::Button} {} {
+                  label {pause walk}
+                  callback {event(evPauseWalk);}
+                  xywh {115 15 50 30} align 128 buttonbox ROUND_UP_BOX color 0xff002400
+                }
+                {fltk::ValueInput} ui_rtCycleTime {
+                  label rtCycle
+                  xywh {105 125 30 25} align 5 minimum 1 maximum 10 step 1 value 1
+                }
+                {fltk::ValueSlider} ui_hipsHeight {
+                  label {hips height}
+                  callback {event(evMakeSteps);}
+                  xywh {25 255 110 15} align 1 minimum 30 maximum 37.393 value 34
+                }
+                {fltk::CheckButton} ui_drawTraj {
+                  label {update trajectory}
+                  xywh {170 145 20 15}
+                }
+                {fltk::ValueSlider} ui_legBaseAngle {
+                  label {leg base angle}
+                  callback {event(evLegBaseAngle);}
+                  xywh {25 314 110 16} align 1 maximum 30
+                }
+                {fltk::Choice} ui_adjustState {
+                  label state open
+                  xywh {195 185 60 25}
+                } {
+                  {fltk::Item} {} {
+                    label Left
+                    }
+                  {fltk::Item} {} {
+                    label Right
+                    }
+                  {fltk::Item} {} {
+                    label Rest
+                    }
+                  {fltk::Item} {} {
+                    label All
+                    }
+                }
+                {fltk::CheckButton} ui_motorReply {
+                  label reply
+                  tooltip {this will return the motor position and sensor data every time a new posture is sent to the queue. to get a constant feed enable "stream"}
+                  xywh {65 55 15 15} vertical align 4
+                }
+                {fltk::CheckButton} ui_realtime {
+                  label Realtime
+                  callback {event(evRealTime);}
+                  tooltip {will send postures to robot if sendPosture() is called}
+                  xywh {150 55 15 15} vertical align 4
+                }
+                {fltk::CheckButton} ui_stream {
+                  label stream
+                  callback {event(evStream);}
+                  tooltip {will continuously send postures to robot.}
+                  xywh {225 54 15 17} align 4
+                }
+              }
+              {fltk::Group} {} {
+                label Scn
+                xywh {5 25 305 505} hide
+              } {
+                {fltk::Browser} ui_objectList {
+                  label {scene objects}
+                  callback {event(evObjSelected);} open
+                  xywh {30 70 205 165}
+                } {}
+                {fltk::Choice} ui_objects {
+                  label objects open
+                  xywh {30 30 201 25} align 1
+                } {}
+                {fltk::Button} {} {
+                  label {add object}
+                  callback {event(evAddObj);}
+                  xywh {34 245 85 30}
+                }
+                {fltk::Button} {} {
+                  label {delete object}
+                  callback {event(evDelObj);}
+                  xywh {139 245 85 30}
+                }
+                {fltk::ValueSlider} ui_objX {
+                  label tX
+                  callback {event(objMove);}
+                  xywh {55 285 150 25} align 4 minimum -121 maximum 121 step 0.5
+                }
+                {fltk::ValueSlider} ui_objY {
+                  label tY
+                  callback {event(objMove);}
+                  xywh {55 310 150 25} align 4 minimum -121 maximum 121 step 0.5
+                }
+                {fltk::ValueSlider} ui_objZ {
+                  label tZ
+                  callback {event(objMove);}
+                  xywh {55 335 150 25} align 4 minimum -121 maximum 121 step 0.5
+                }
+                {fltk::ValueSlider} ui_objrX {
+                  label rX
+                  callback {event(objMove);}
+                  xywh {55 370 150 25} align 4 minimum -180 maximum 180 step 1
+                }
+                {fltk::ValueSlider} ui_objrY {
+                  label rY
+                  callback {event(objMove);}
+                  xywh {55 395 150 25} align 4 minimum -180 maximum 180 step 1
+                }
+                {fltk::ValueSlider} ui_objrZ {
+                  label rZ
+                  callback {event(objMove);}
+                  xywh {55 420 150 25} align 4 minimum -180 maximum 180 step 1
+                }
+                {fltk::CheckButton} ui_showScene {
+                  label {show scene}
+                  callback {event(evShowScene);}
+                  xywh {45 470 25 25}
+                }
+              }
+              {fltk::Group} {} {
+                label Jnt
+                xywh {5 25 305 510} hide labelfont 1 labelsize 11 textsize 11
+              } {
+                {fltk::InvisibleBox} {} {
+                  xywh {0 8 295 502} box DOWN_BOX color 0xd1e6f000
+                }
+                {fltk::InvisibleBox} {} {
+                  xywh {3 140 288 301} box DOWN_BOX color 0xaaaaaa00
+                }
+                {fltk::InvisibleBox} {} {
+                  xywh {3 63 288 75} box DOWN_BOX color 0xaaaaaa00
+                }
+                {fltk::ValueSlider} {ui_Ang[0]} {
+                  callback {event(evJntSlide);}
+                  xywh {56 315 110 20} buttoncolor 0x2200f000 minimum -90 maximum 30 step 1 slider_size 6
+                }
+                {fltk::ValueSlider} {ui_Ang[1]} {
+                  callback {event(evJntSlide);}
+                  xywh {56 335 110 20} buttoncolor 0x2200f000 minimum -30 maximum 20 step 1 slider_size 6
+                }
+                {fltk::ValueSlider} {ui_Ang[2]} {
+                  callback {event(evJntSlide);}
+                  xywh {56 355 110 20} buttoncolor 0x2200f000 minimum -70 maximum 70 step 1 slider_size 6
+                }
+                {fltk::ValueSlider} {ui_Ang[3]} {
+                  callback {event(evJntSlide);}
+                  xywh {56 375 110 20} buttoncolor 0x2200f000 maximum 90 step 1 slider_size 6
+                }
+                {fltk::ValueSlider} {ui_Ang[4]} {
+                  callback {event(evJntSlide);}
+                  xywh {56 395 110 20} buttoncolor 0x2200f000 minimum -60 maximum 60 step 1 slider_size 6
+                }
+                {fltk::ValueSlider} {ui_Ang[5]} {
+                  callback {event(evJntSlide);}
+                  xywh {56 415 110 20} buttoncolor 0x2200f000 minimum -22 maximum 22 step 1 slider_size 6
+                }
+                {fltk::ValueSlider} {ui_Ang[6]} {
+                  label ui_Rarm
+                  callback {event(evJntSlide);}
+                  xywh {57 160 110 20} buttoncolor 0x2200f000 minimum -90 maximum 130 step 1 slider_size 6
+                }
+                {fltk::ValueSlider} {ui_Ang[7]} {
+                  callback {event(evJntSlide);}
+                  xywh {57 180 110 20} buttoncolor 0x2200f000 minimum -90 maximum 0 step 1 slider_size 6
+                }
+                {fltk::ValueSlider} {ui_Ang[8]} {
+                  callback {event(evJntSlide);}
+                  xywh {57 200 110 20} buttoncolor 0x2200f000 minimum -90 maximum 90 step 1 slider_size 6
+                }
+                {fltk::ValueSlider} {ui_Ang[9]} {
+                  callback {event(evJntSlide);}
+                  xywh {57 220 110 20} buttoncolor 0x2200f000 minimum -110 maximum 0 step 1 slider_size 6
+                }
+                {fltk::InvisibleBox} {} {
+                  xywh {3 8 288 54} box DOWN_BOX color 0xaaaaaa00
+                }
+                {fltk::ValueSlider} {ui_Ang[10]} {
+                  callback {event(evJntSlide);}
+                  xywh {171 315 110 20} buttoncolor 0x2200f000 minimum -30 maximum 90 step 1 slider_size 6
+                }
+                {fltk::ValueSlider} {ui_Ang[11]} {
+                  callback {event(evJntSlide);}
+                  xywh {171 335 110 20} buttoncolor 0x2200f000 minimum -20 maximum 30 step 1 slider_size 6
+                }
+                {fltk::ValueSlider} {ui_Ang[12]} {
+                  callback {event(evJntSlide);}
+                  xywh {171 355 110 20} buttoncolor 0x2200f000 minimum -70 maximum 70 step 1 slider_size 6
+                }
+                {fltk::ValueSlider} {ui_Ang[13]} {
+                  callback {event(evJntSlide);}
+                  xywh {171 375 110 20} buttoncolor 0x2200f000 maximum 90 step 1 slider_size 6
+                }
+                {fltk::ValueSlider} {ui_Ang[14]} {
+                  callback {event(evJntSlide);}
+                  xywh {171 395 110 20} buttoncolor 0x2200f000 minimum -60 maximum 60 step 1 slider_size 6
+                }
+                {fltk::ValueSlider} {ui_Ang[15]} {
+                  callback {event(evJntSlide);}
+                  xywh {171 415 110 20} buttoncolor 0x2200f000 minimum -22 maximum 22 step 1 slider_size 6
+                }
+                {fltk::ValueSlider} {ui_Ang[16]} {
+                  label ui_Larm
+                  callback {event(evJntSlide);}
+                  xywh {172 159 110 20} buttoncolor 0x2200f000 minimum -90 maximum 130 step 1 slider_size 6
+                }
+                {fltk::ValueSlider} {ui_Ang[17]} {
+                  callback {event(evJntSlide);}
+                  xywh {172 179 110 20} buttoncolor 0x2200f000 maximum 90 step 1 slider_size 6
+                }
+                {fltk::ValueSlider} {ui_Ang[18]} {
+                  callback {event(evJntSlide);}
+                  xywh {172 199 110 20} buttoncolor 0x2200f000 minimum -90 maximum 90 step 1 slider_size 6
+                }
+                {fltk::ValueSlider} {ui_Ang[19]} {
+                  callback {event(evJntSlide);}
+                  xywh {172 219 110 20} buttoncolor 0x2200f000 minimum -110 maximum 0 step 1 slider_size 6
+                }
+                {fltk::ValueSlider} {ui_Ang[20]} {
+                  callback {event(evJntSlide);}
+                  xywh {96 288 135 20} buttoncolor 0x2200f000 minimum -90 maximum 0 step 1 slider_size 6
+                }
+                {fltk::ValueSlider} {ui_Ang[21]} {
+                  label {Head T}
+                  callback {event(evHead);}
+                  xywh {95 108 135 20} align 4 minimum 15 maximum 120 step 1 value 60
+                  extra_code {/*neck*/}
+                }
+                {fltk::ValueSlider} {ui_Ang[22]} {
+                  label {Head P}
+                  callback {event(evHead);}
+                  xywh {95 88 135 20} align 4 minimum 256 maximum 376 step 1 value 316
+                }
+                {fltk::ValueSlider} {ui_Ang[23]} {
+                  label {Head R}
+                  callback {event(evHead);}
+                  xywh {95 68 135 20} align 4 minimum 562 maximum 582 value 572
+                }
+                {fltk::ValueSlider} {ui_Ang[24]} {
+                  callback {event(evRthumb);}
+                  xywh {57 260 110 20} buttoncolor 0x2200f000 minimum 512 maximum 632 step 1 value 572 slider_size 6
+                  extra_code {/*will be Enc[24]*/}
+                }
+                {fltk::ValueSlider} {ui_Ang[25]} {
+                  callback {event(evJntSlide);}
+                  xywh {57 240 110 20} buttoncolor 0x2200f000 maximum 120 step 1 value 60 slider_size 6
+                }
+                {fltk::ValueSlider} {ui_Ang[26]} {
+                  callback {event(evLthumb);}
+                  xywh {172 259 110 20} buttoncolor 0x2200f000 minimum 768 maximum 888 step 1 value 828 slider_size 6
+                  extra_code {/*will be Enc[26]*/}
+                }
+                {fltk::ValueSlider} {ui_Ang[27]} {
+                  callback {event(evJntSlide);}
+                  xywh {172 239 110 20} buttoncolor 0x2200f000 minimum 256 maximum 376 step 1 value 316 slider_size 6
+                }
+                {fltk::Button} {} {
+                  label Zero
+                  callback {event ( evZero );}
+                  xywh {5 442 45 28}
+                }
+                {fltk::InvisibleBox} {} {
+                  label hipT
+                  xywh {10 315 45 20} align 32
+                }
+                {fltk::InvisibleBox} {} {
+                  label hipR
+                  xywh {10 335 45 20} align 32
+                }
+                {fltk::InvisibleBox} {} {
+                  label hipP
+                  xywh {10 355 45 20} align 32
+                }
+                {fltk::InvisibleBox} {} {
+                  label knee
+                  xywh {10 375 45 20} align 32
+                }
+                {fltk::InvisibleBox} {} {
+                  label ankleP
+                  xywh {10 395 45 20} align 32
+                }
+                {fltk::InvisibleBox} {} {
+                  label ankleR
+                  xywh {10 415 45 20} align 32
+                }
+                {fltk::InvisibleBox} {} {
+                  label shldrP
+                  xywh {10 160 45 20} align 32
+                }
+                {fltk::InvisibleBox} {} {
+                  label shldrR
+                  xywh {10 180 45 20} align 32
+                }
+                {fltk::InvisibleBox} {} {
+                  label shldrT
+                  xywh {10 200 45 20} align 32
+                }
+                {fltk::InvisibleBox} {} {
+                  label elbow
+                  xywh {10 220 45 20} align 32
+                }
+                {fltk::InvisibleBox} {} {
+                  label hand
+                  xywh {10 240 45 20} align 32
+                }
+                {fltk::InvisibleBox} {} {
+                  label fingers
+                  xywh {10 260 45 20} align 32
+                }
+                {fltk::InvisibleBox} {} {
+                  label Right
+                  xywh {100 140 45 20} align 32
+                }
+                {fltk::InvisibleBox} {} {
+                  label Left
+                  xywh {220 140 45 20} align 32
+                }
+                {fltk::InvisibleBox} {} {
+                  label waist
+                  xywh {39 281 45 20} align 32
+                }
+                {fltk::ValueInput} ui_intstep {
+                  label Steps
+                  callback {event(evIntStep);}
+                  xywh {210 445 26 25} align 8 minimum 1 maximum 10 step 1 value 5
+                }
+                {fltk::Button} {} {
+                  label send
+                  callback {event(evSendPos);}
+                  xywh {50 442 45 28}
+                }
+                {fltk::LightButton} {ui_E[5]} {
+                  callback {event(evEyes);}
+                  xywh {164 13 25 15} buttoncolor 56 value 1
+                }
+                {fltk::LightButton} {ui_E[8]} {
+                  callback {event(evEyes);}
+                  xywh {140 28 25 15} buttoncolor 56 value 1
+                }
+                {fltk::LightButton} {ui_E[7]} {
+                  callback {event(evEyes);}
+                  xywh {189 28 25 15} buttoncolor 56 value 1
+                }
+                {fltk::LightButton} {ui_E[6]} {
+                  callback {event(evEyes);}
+                  xywh {164 43 25 15} buttoncolor 56 value 1
+                }
+                {fltk::LightButton} {ui_E[0]} {
+                  callback {event(evEyes);}
+                  xywh {77 13 25 15} buttoncolor 56 value 1
+                  extra_code {/*RU*/}
+                }
+                {fltk::LightButton} {ui_E[3]} {
+                  callback {event(evEyes);}
+                  xywh {55 28 25 15} buttoncolor 56 value 1
+                }
+                {fltk::LightButton} {ui_E[2]} {
+                  callback {event(evEyes);}
+                  xywh {102 28 25 15} buttoncolor 56 value 1
+                }
+                {fltk::LightButton} {ui_E[1]} {
+                  callback {event(evEyes);}
+                  xywh {77 43 25 15} buttoncolor 56 value 1
+                }
+                {fltk::LightButton} {ui_E[9]} {
+                  callback {event(evEyes);}
+                  xywh {164 28 25 15} buttoncolor 56
+                }
+                {fltk::LightButton} {ui_E[4]} {
+                  callback {event(evEyes);}
+                  xywh {77 28 25 15} buttoncolor 56
+                }
+                {fltk::Button} {} {
+                  label {create IK}
+                  callback {event(evSetIK);}
+                  xywh {95 442 45 28} align 128
+                }
+                {fltk::Button} {} {
+                  label {reset  IK}
+                  callback {event(evResetIK);}
+                  xywh {140 442 45 28} align 128
+                }
+                {fltk::Button} {} {
+                  label land
+                  callback {event(evLand);}
+                  xywh {5 472 45 28}
+                }
+              }
+              {fltk::Group} {} {
+                label Tsk open
+                xywh {0 25 310 530} hide
+              } {
+                {fltk::ValueSlider} ui_wipeRadius {
+                  label Radius
+                  callback {event(evMakeWipe);}
+                  xywh {120 25 115 25} align 4 minimum 0.1 maximum 10 value 1
+                }
+                {fltk::Button} {} {
+                  label wipe
+                  callback {event(evWipe);}
+                  xywh {120 85 115 25}
+                }
+                {fltk::Button} {} {
+                  label {make wipe}
+                  callback {event(evMakeWipe)}
+                  xywh {120 55 115 25}
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+    {fltk::Window} ui_graph_window {
+      label {Graph Window}
+      xywh {162 295 1065 580} vertical hide resizable
+    } {
+      {fltk::Group} ui_graph_win {
+        label graph open
+        xywh {194 6 871 539} box DOWN_BOX color 0x7eabf000
+        class AppGraphViewer
+      } {}
+      {fltk::Group} {} {
+        xywh {0 0 184 540} box DOWN_BOX color 0xd3d7f000
+      } {
+        {fltk::Browser} ui_channelList {
+          label channels
+          callback {event(evChannelSel);}
+          xywh {15 20 150 220} type Multi
+        } {}
+        {fltk::InvisibleBox} {} {
+          label Rotate
+          xywh {25 401 55 90} align 33 box DOWN_BOX
+        }
+        {fltk::InvisibleBox} {} {
+          label Position
+          xywh {85 401 55 90} align 33 box DOWN_BOX
+        }
+        {fltk::Button} {} {
+          label {load channels}
+          callback {event(evLoadChannels);}
+          xywh {10 255 50 25} align 128 labelsize 10
+        }
+        {fltk::CheckButton} ui_channelRX {
+          label X
+          callback {event(evChannelSel);}
+          xywh {40 421 25 25}
+        }
+        {fltk::CheckButton} ui_channelRY {
+          label Y
+          callback {event(evChannelSel);}
+          xywh {40 441 25 25}
+        }
+        {fltk::CheckButton} ui_channelRZ {
+          label Z
+          callback {event(evChannelSel);}
+          xywh {40 461 25 25}
+        }
+        {fltk::CheckButton} ui_channelPX {
+          label X
+          callback {event(evChannelSel);}
+          xywh {110 421 25 25}
+        }
+        {fltk::CheckButton} ui_channelPY {
+          label Y
+          callback {event(evChannelSel);}
+          xywh {110 441 25 25}
+        }
+        {fltk::CheckButton} ui_channelPZ {
+          label Z
+          callback {event(evChannelSel);}
+          xywh {110 461 25 25}
+        }
+        {fltk::CheckButton} ui_ikChannel {
+          label {ik channels}
+          xywh {35 376 25 25} value 1
+        }
+        {fltk::Button} {} {
+          label {free tangent}
+          callback {event(evFreeTangent);}
+          xywh {15 501 105 25}
+        }
+        {fltk::Button} {} {
+          label {make Group}
+          callback {event(evMakeGroup);}
+          xywh {65 255 50 25} align 128 labelsize 10
+        }
+        {fltk::Button} {} {
+          label {new   track}
+          callback {event(evMakeTrack);}
+          xywh {120 255 50 25} align 128 labelsize 10
+        }
+        {fltk::Choice} ui_keyGroups {
+          label {Key Groups}
+          callback {event(evKeyGroups);} open
+          xywh {30 300 125 25} align 1
+        } {}
+        {fltk::Choice} ui_TrackList {
+          label Tracks
+          callback {event(evTrackList);} open
+          xywh {30 340 125 25} align 1
+        } {}
+      }
+      {fltk::TextDisplay} ui_currentTrack {
+        label {Current Track}
+        xywh {295 550 140 25}
+      }
+    }
+    {fltk::Window} ui_nla_window {
+      label {NLA Editor}
+      xywh {13 195 1008 317} vertical hide
+    } {
+      {fltk::Group} ui_nla_win {
+        label Trax open
+        xywh {176 11 822 299} box DOWN_BOX color 0xb9f0f000
+        class AppNLAEditor
+      } {}
+      {fltk::Group} {} {open
+        xywh {5 10 165 300} box DOWN_BOX color 0xd3d3d300
+      } {
+        {fltk::Browser} ui_TrackListNla {
+          label Tracks
+          callback {event(evTrackList);} open
+          xywh {7 20 150 220} type Multi
+        } {}
+        {fltk::Button} {} {
+          label {insert track}
+          callback {event(evInsertTrack);}
+          xywh {15 255 56 25} align 128 labelsize 10
+        }
+        {fltk::Button} {} {
+          label {load tracks}
+          callback {event(evLoadTracks);}
+          xywh {85 255 56 25} align 128 labelsize 10
+        }
+      }
+    }
+    {fltk::Window} ui_foot_window {
+      label {Foot Planner}
+      xywh {218 202 682 513} vertical hide resizable
+    } {
+      {fltk::Group} ui_foot_win {
+        label Foot
+        xywh {170 1 512 512} box DOWN_BOX color 0xb9f0f000
+        class AppFootViewer
+      } {}
+      {fltk::Group} {} {open
+        xywh {4 17 161 478} box DOWN_BOX color 0xd3d3d300
+      } {
+        {fltk::Button} {} {
+          label Foot
+          callback {event(evFoot);}
+          xywh {31 218 80 25} align 128 labelsize 10
+        }
+      }
+    }
+    {fltk::Window} ui_timeline_window {
+      label TimeLine
+      xywh {64 1357 927 105} vertical hide resizable
+    } {
+      {fltk::Group} {} {
+        xywh {0 0 925 100} box DOWN_BOX color 0xc9f0c300
+      } {
+        {fltk::Group} time_slider {
+          label TimeLine
+          xywh {110 30 720 38} box DOWN_BOX color 0x5a60f000
+          class TimeSlider
+        } {}
+        {fltk::ValueInput} ui_startFrame {
+          label START
+          callback {event(evTimeSlider);}
+          xywh {841 49 40 20} align 1
+        }
+        {fltk::ValueInput} ui_endFrame {
+          label END
+          callback {event(evTimeSlider);}
+          xywh {881 49 40 20} align 1 value 300
+        }
+        {fltk::Button} {} {
+          label Play
+          callback {event(evPlay);}
+          xywh {20 39 35 30}
+        }
+        {fltk::ValueInput} ui_curFrame {
+          label TIME
+          callback {event(evTimeSlider);}
+          xywh {62 48 40 20} align 1
+        }
+        {fltk::Button} {} {
+          label {key at}
+          callback {event(evInsert);}
+          xywh {20 74 60 20}
+        }
+        {fltk::Button} {} {
+          label {key Jnts}
+          callback {event(evSet);}
+          xywh {86 74 60 20}
+        }
+        {fltk::Button} {} {
+          label delete
+          callback {event(evDelete);}
+          xywh {152 74 60 20}
+        }
+        {fltk::Button} {} {
+          label move
+          callback {event(evMoveKey);}
+          xywh {218 74 60 20}
+        }
+        {fltk::Button} {} {
+          label {key IK}
+          callback {event(evIKKey);}
+          xywh {284 74 60 20}
+        }
+        {fltk::CheckButton} ui_playIK {
+          label {play IK}
+          xywh {80 9 20 16} value 1
+        }
+        {fltk::Button} {} {
+          label {clear Keys}
+          xywh {349 74 60 20}
+        }
+        {fltk::Group} {} {
+          xywh {40 5 290 25}
+        } {
+          {fltk::RadioButton} ui_frameTog {
+            label frames
+            callback {event(evFrameToggle);}
+            xywh {170 0 30 25} align 4 value 1
+          }
+          {fltk::RadioButton} {} {
+            label seconds
+            callback {event(evFrameToggle);}
+            xywh {260 0 30 25} align 4
+          }
+          {fltk::ValueInput} ui_timefps {
+            label fps
+            xywh {5 0 30 25} value 30
+          }
+        }
+      }
+    }
+  }
+} 

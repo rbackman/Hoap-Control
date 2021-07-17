@@ -1,0 +1,64 @@
+# GSim Humanoid Definition - M. Kallmann 2008
+
+HmHumanoid
+
+# a humanoid-compatible skeleton file must be given
+skeleton "Hoap3.s"
+
+# if the type is not given, character type is assumed
+type Hoap3
+
+# total body mass in Kg
+bodymass 70
+
+# relative mass distribution information
+# must add to 1: Trunk(0.497) + Head + 2*FullLeg(0.161) + 2*Arm(0.05) = 1.0
+#    ProxJoint    Weight	RelPos	Child	CorrVec
+mass head		  0.081		0		0		0 8 4	# Head
+mass thorax		  0.216		0.18	0		0 0 0	# Thorax
+mass abdomen	  0.139		0.56	0		0 0 0	# Abdomen
+mass sacroiliac	  0.142		0.895	0		0 0 0	# Pelvis
+mass rwrist		  0.006		0		0	    -9 0 0	# Hand
+mass lwrist		  0.006		0		0		9 0 0	# Hand
+mass relbow		  0.016		0.570	0		0 0 0	# Forearm
+mass lelbow		  0.016	    0.570	0		0 0 0	# Forearm
+mass rshoulder	  0.028	    0.564	0		0 0 0	# Upperarm
+mass lshoulder	  0.028		0.564	0		0 0 0	# Upperarm
+mass rankle		  0.0145	0		0		0 -5 8	# Foot
+mass lankle		  0.0145	0		0		0 -5 8	# Foot
+mass lknee		  0.0465	0.567	0		0 0 0	# Leg
+mass rknee		  0.0465	0.567	0		0 0 0	# Leg
+mass lhip		  0.100	    0.567	0		0 0 0	# Thigh
+mass rhip		  0.100	    0.567	0		0 0 0	# Thigh
+
+# identify used joint names to the main humanoid joints
+# important: the order of the joints below must not change
+jointnames
+hips		hips
+neck		neck
+lshoulder	lcollar
+larm		lshoulder
+lforearm	lelbow
+lhand		lwrist
+rshoulder	rcollar
+rarm		rshoulder
+rforearm	relbow
+rhand		rwrist
+rupleg		rhip
+rleg		rknee
+rfoot		rankle
+rtoebase	rtoes
+lupleg		lhip
+lleg		lknee
+lfoot		lankle
+ltoebase	ltoes
+
+# make collision geometries from visualization geometries
+autocolgeos
+
+end
+
+
+
+
+

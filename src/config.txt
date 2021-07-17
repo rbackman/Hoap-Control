@@ -1,0 +1,46 @@
+# config file
+
+parameters
+{
+
+#skeleton files for hoap and scene 
+	hoapfile = "../../models/hoap/hoap.hm"; 
+	viconscenefile = "../../models/hoap/environment.s";
+	scenefile = "../../models/hoap/Scene.s";
+	startScene = "viconscenefile";
+
+#walk parameters
+	turnAdjustAngle = 22.01;
+	turnAdjustDist = 1.6;
+	footHeight = 3;
+	hipsHeight = 35.2;
+	maxStepDist = 13;
+	channelRad = 17;
+	pathRad = 16.5;
+	dangle = 5;
+	realtime = true;
+	stepsize = 8;
+	baseAngle = 10;
+	interps = 60;
+	fps = 60;
+	rtCycle = 1;
+
+#draw parameters
+	jointAxis = false;
+	visgeo = false;
+	skeleton = true;
+	partsCom = false;
+	COM = false;
+	support = true;
+	collisions = true;
+	armIK = false;
+
+#net parameters
+	local = false;
+	reply = false;
+	createIK = true;
+	stream = 0;
+
+}
+
+end
